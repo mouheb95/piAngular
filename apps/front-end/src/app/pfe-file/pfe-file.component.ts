@@ -133,4 +133,26 @@ export class PfeFileComponent implements OnInit {
       this.list_company = res;
     })
   }
+
+  //test
+
+  /* resetPfeFile(){
+    const emptyPFeFile = {
+      id: null,
+      description: "",
+      fonctionality: "",
+      keyWord : "",
+      problematic: "",
+       title: "",
+      currentYear: "",
+      category: null,
+      company: null,
+      student: null,
+      framer: null,
+      note_IR: null,
+      note_F: null
+    }
+
+    return this.currentPfeFile = emptyPFeFile;
+  } */
 }
