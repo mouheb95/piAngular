@@ -1,0 +1,7 @@
+{
+  "piPfe-web/rest/*": {
+    "target": "http://localhost:9383",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}
