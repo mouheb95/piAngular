@@ -1,0 +1,39 @@
+{
+  "npmScope": "workshop",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "dashboard": {
+      "tags": []
+    },
+    "dashboard-e2e": {
+      "tags": []
+    },
+    "material": {
+      "tags": []
+    },
+    "core-data": {
+      "tags": []
+    },
+    "ui-login": {
+      "tags": []
+    },
+    "ui-toolbar": {
+      "tags": []
+    },
+    "ui-header": {
+      "tags": []
+    },
+    "ui-footer": {
+      "tags": []
+    },
+    "ui-sign-up": {
+      "tags": []
+    }
+  }
+}

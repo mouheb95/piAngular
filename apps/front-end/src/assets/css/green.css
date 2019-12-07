@@ -1,0 +1,235 @@
+/*------------------------------------
+    Green color style sheet
+	
+	just replace "5DC560" with your custom color
+------------------------------------*/
+a {
+	color: #5DC560;
+}
+p.template-para::first-letter {
+	color: #5DC560;
+}
+.color-default {
+	color: #5DC560;
+}
+.template-list li:before {
+	color: #5DC560;
+}
+.bg-primary {
+	background-color: #5DC560;
+}
+.text-primary {
+	color: #5DC560;
+}
+h2.para-heading {
+	color:#5DC560;
+}
+.section-heading:before {
+	background-color: #5DC560;
+}
+.section-heading:after {
+	background-color: #5DC560;
+}
+header.inner .header-content h1 {
+    color: #5DC560;
+}
+.theme-bg {
+	background: #5DC560;
+}
+ul.dot-ul li:before {
+	color: #5DC560;
+}
+#scroll-up {
+	background-color: #5DC560;
+}
+.loader {
+	border-top: 3px solid #5DC560;
+}
+div.konnect-info {
+	background: #5DC560;
+}
+.navbar-default .navbar-header .navbar-brand {
+	color: #5DC560;
+}
+.navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus:hover {
+	color: #5DC560;
+}
+.navbar-default .nav > li.active > a, .navbar-default .nav > li.active > a:focus {
+	color: #5DC560;
+}
+.navbar-default.affix .nav > li.active > a, .navbar-default.affix .nav > li.active > a:focus {
+	color: #5DC560 !important;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #5DC560;
+}
+.navbar-default li.search-icon a .fa {
+	color: #5DC560;
+}
+.search-form .form-control:focus {
+	border-color: #5DC560;
+}
+.search-form button {
+	background-color: #5DC560;
+}
+.dropdown-menu {
+	border-top: 3px solid #5DC560;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:active, .dropdown-menu > li > a:focus {
+	background-color: #5DC560;
+}
+.profile-box h4 span {
+	color: #5DC560;
+}
+.service-box-button {
+	background: #5DC560;
+}
+.img-box span {
+	background: #5DC560;
+}
+.post-more a {
+	background: #5DC560;
+}
+.template-readmore:hover {
+	background: #5DC560;
+}
+.post-preview a:hover, .post-preview a:focus {
+	color: #5DC560;
+}
+.pager li > a, .pager li > span {
+	background-color: #5DC560;
+	border: 1px solid #5DC560;
+}
+.pager li > a:hover, .pager li > a:focus, .pager li > a:active {
+	color: #5DC560;
+}
+.sidebar-post > a:hover {
+	color: #5DC560;
+}
+.sidebar-post > a::before {
+	color: #5DC560;
+}
+.sidebar-list li:before {
+	color: #5DC560;
+}
+.sidebar-list li a:hover, .sidebar-list li a:focus, .sidebar-list li a:active {
+	color: #5DC560;
+}
+.sidebar-tags a:hover, .sidebar-tags a:active, .sidebar-tags a:focus {
+	color: #5DC560;
+	border: 1px solid #5DC560;
+}
+.sidebar-cta {
+	background: #5DC560;
+}
+.sidebar-cta div {
+	background: #5DC560;
+}
+button.btn-download:hover, button.btn-download:active, button.btn-download:focus {
+	color: #5DC560;
+}
+h3.author-name {
+	color: #5DC560;
+}
+.post-meta a {
+	color: #5DC560;
+}
+.team-more a {
+	color: #5DC560;
+}
+.panel-title a:hover, .panel-title a[aria-expanded="true"] {
+	background-color: #5DC560;
+}
+#quote-carousel .carousel-indicators li {
+	background: #5DC560;
+}
+#quote-carousel .carousel-indicators .active {
+	background: #5DC560;
+}
+.template-form .form-control:focus {
+	border-color: #5DC560;
+}
+.konnect-form .form-control:focus {
+	border-color: #5DC560;
+}
+.footer-widget h3{
+	color:#5DC560;
+}
+.footer-widget .read-more {
+	background-color: #5DC560;
+}
+.footer-widget.address .fa {
+	color: #5DC560;
+}
+.footer-widget ul li .fa {
+	color: #5DC560;
+}
+.footer-widget ul li a:hover, .footer-widget ul li a:active, .footer-widget ul li a:focus {
+	color: #5DC560;
+}
+.btn-primary {
+	background-color: #5DC560;
+	border-color: #5DC560;
+}
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+	background-color: #5DC560;
+	border-color: #5DC560;
+}
+.btn-primary .badge {
+	color: #5DC560;
+}
+.template-button {
+	color: #5DC560;
+}
+.dark-bg .template-button {
+	background: #5DC560;
+}
+.template-button:hover, .template-button:focus, .template-button:active {
+	color: #5DC560;
+}
+.btn-facebook:hover {
+	color: #5DC560;
+}
+.btn-google:hover {
+	color: #5DC560;
+}
+.error-page ul li a {
+	background-color: #5DC560;
+}
+.konnect-carousel:hover .flex-next, .konnect-carousel:hover .flex-prev {
+	color: #5DC560;
+}
+.carousel-image .big {
+	color: #5DC560;
+}
+.carousel-image .btn.btn-lg {
+	background: #5DC560;
+}
+.carousel-image-pagination .flex-control-paging a:hover, .carousel-image-pagination .flex-control-paging a.flex-active {
+	background-color: #5DC560;
+}
+.konnect-carousel:hover .flex-next, .konnect-carousel:hover .flex-prev {
+	border: 1px solid #5DC560;
+}
+.banner-bar h3 {
+    color: #5DC560;
+}
+.post-content-text h4 span{
+	color:#5DC560;
+}
+@media (max-width: 767px) {
+.navbar-default .nav > li.active > a, .navbar-default .nav > li.active > a:focus {
+	color: #5DC560;
+}
+}
+ @media (min-width: 768px) {
+.navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus:hover {
+	color: #5DC560;
+}
+.navbar-default.affix .navbar-header .navbar-brand {
+	color: #5DC560;
+}
+.navbar-default.affix .nav > li > a:hover, .navbar-default.affix .nav > li > a:focus:hover {
+	color: #5DC560;
+}
+}
