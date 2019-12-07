@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
     if( JSON.parse( localStorage.getItem('currentUser')) === null ) {
         console.log("GO LOGIN FIRST FUCKER");
         this.router.navigate(['/login']);
-    }
+    } 
  
 
 }
