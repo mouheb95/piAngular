@@ -1,0 +1,34 @@
+<div class="container custom-container">
+  <div class="col-md-12">
+
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.name" class="form-control" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.lastname" class="form-control" placeholder="LastName">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.birthdate" class="form-control" placeholder="BirthDate">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.password" class="form-control" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.email" class="form-control" placeholder="Email">
+    </div>
+    {{currentProfile | json}}
+
+
+
+    <div class="form-group"   >
+      <button class="btn btn-success btn-lg btn-block"   (click)="ajouthaed()"  (click)="addProfile()" (click)="addTeacher()" (click)="addintdirec()">Create Profile</button>
+
+    </div>
+
+  </div>
+</div>

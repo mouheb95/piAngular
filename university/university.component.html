@@ -1,0 +1,65 @@
+<div class="container custom-container">
+  <div class="col-md-12">
+
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentUniversity.name" class="form-control" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentUniversity.address" class="form-control" placeholder="Adress">
+    </div>
+    {{currentUniversity | json}}
+
+
+
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" (click)="addUniversity()">Create Univeristy</button>
+    </div>
+
+  </div>
+</div>
+
+
+---------------------------------------------------------------------------------------------
+
+
+
+
+<div >
+  <h3 class="mb-3 text-center">Universitiy</h3>
+
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">University Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Owner</th>
+        <th scope="col">Site</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let currentUniversity of University">
+        <td>{{currentUniversity.id}}</td>
+        <td>{{currentUniversity.name}}</td>
+        <td>{{currentUniversity.address}}</td>
+        <td>{{currentUniversity.owner}}</td>
+        <td>{{currentUniversity.site}}</td>
+
+        <td>
+
+          <button  (click)="deleteUniversity(University.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+-----------------------------------------------------------------------------------------------
+
+
