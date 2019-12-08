@@ -219,7 +219,7 @@
                         </div>
                     </div>
                     <div class="kt-widget__items">
-                        <a href="/metronic/preview/demo2/custom/apps/user/profile-1/overview.html" class="kt-widget__item ">
+                        <a href="javascript:;" class="kt-widget__item ">
                             <span class="kt-widget__section">
                                 <span class="kt-widget__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -234,7 +234,7 @@
                                 </span>
                             </span>
                         </a>
-                        <a href="/metronic/preview/demo2/custom/apps/user/profile-1/personal-information.html" class="kt-widget__item kt-widget__item--active">
+                        <a (click)="show_profile = true" href="javascript:;" class="kt-widget__item kt-widget__item--active">
                             <span class="kt-widget__section">
                                 <span class="kt-widget__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -264,7 +264,7 @@
                                 </span>
                             
                         </span></a>
-                        <a href="/metronic/preview/demo2/custom/apps/user/profile-1/change-password.html" class="kt-widget__item ">
+                        <a (click)="show_profile = false" class="kt-widget__item ">
                             <span class="kt-widget__section">
                                 <span class="kt-widget__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -276,7 +276,7 @@
         </g>
     </svg>                            </span>
                                 <span class="kt-widget__desc">
-                                    Change Passwort
+                                    Change Password
                                 </span>
                             </span>
                             <span class="kt-badge kt-badge--unified-danger kt-badge--sm kt-badge--rounded kt-badge--bolder">5</span>
@@ -356,7 +356,7 @@
         <!-- ---------------------------------------------------------------------------------------------------------- -->
 
         <!-- start personnal information -->
-        <div *ngIf="false" class="kt-grid__item kt-grid__item--fluid kt-app__content">
+        <div *ngIf="show_profile" class="kt-grid__item kt-grid__item--fluid kt-app__content">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="kt-portlet">
@@ -516,7 +516,7 @@
         <!-- end personnal information -->
 
         <!-- start change password -->
-        <div *ngIf="true"  class="kt-grid__item kt-grid__item--fluid kt-app__content">
+        <div *ngIf="!show_profile"  class="kt-grid__item kt-grid__item--fluid kt-app__content">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="kt-portlet kt-portlet--height-fluid">

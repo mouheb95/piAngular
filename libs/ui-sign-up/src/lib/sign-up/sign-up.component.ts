@@ -15,11 +15,6 @@ export class SignUpComponent implements OnInit {
     this.reset();
   }
 
-  signUp(user) {
-    this.studentService.signUp(user).subscribe( res => {
-      console.log(res);
-    })
-  }
 
   reset() {
     const emptyUser = {

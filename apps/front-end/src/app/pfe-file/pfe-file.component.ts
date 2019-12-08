@@ -18,6 +18,7 @@ export class PfeFileComponent implements OnInit {
   company;
   condition_on_select_company = false;
   show_pfefile = true 
+  intersheepDetails ;
 
   constructor(
     private pfefileService: PfefileService, 
@@ -26,11 +27,12 @@ export class PfeFileComponent implements OnInit {
     ) { }
   
   ngOnInit() {
-  
+    this.resetIntersheepDetails();
     this.resetPfeFile();
     this.hasPfe();
     this.findAllCompany();
-  
+    this.showInterSheepDetails(1)
+
   }
 
   resetPfeFile(){
@@ -51,6 +53,15 @@ export class PfeFileComponent implements OnInit {
     }
 
     return this.currentPfeFile = emptyPFeFile;
+  }
+
+  resetIntersheepDetails(){
+    const x = {
+      "date_debut": "",
+    "date_fin": "",
+    "status": ""
+    }
+    this.intersheepDetails = x;
   }
 
   savechanges(pfeFile: PfeFile){
@@ -134,25 +145,11 @@ export class PfeFileComponent implements OnInit {
     })
   }
 
-  //test
+  showInterSheepDetails(id){
+    this.studentService.hasIntersheepAgreement(id).subscribe( res =>{
+      this.intersheepDetails = res ;
+      
+    })
+  }
 
-  /* resetPfeFile(){
-    const emptyPFeFile = {
-      id: null,
-      description: "",
-      fonctionality: "",
-      keyWord : "",
-      problematic: "",
-       title: "",
-      currentYear: "",
-      category: null,
-      company: null,
-      student: null,
-      framer: null,
-      note_IR: null,
-      note_F: null
-    }
-
-    return this.currentPfeFile = emptyPFeFile;
-  } */
 }

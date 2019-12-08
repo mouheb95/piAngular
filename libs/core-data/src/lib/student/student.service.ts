@@ -13,11 +13,11 @@ export class StudentService {
      'Content-Type':  'application/json'
    })
  };
-url : string = "http://localhost:9080/piPfe-web/rest/students/" 
+url : string = "http://localhost:9080/piPfe-web/rest/" 
  constructor(private http: HttpClient) { }
 
  findStudent(id): Observable<any> {
-  return this.http.get<Student>(this.url+"findStudent/"+id);
+  return this.http.get<Student>(this.url+"students/findStudent/"+id);
  } 
 
  updateStudent(student): Observable<any> {
@@ -25,15 +25,13 @@ url : string = "http://localhost:9080/piPfe-web/rest/students/"
  }
  
  hasPfe(id): Observable<any> {
-  return this.http.get(this.url+"hasPfe/"+id+"");
+  return this.http.get(this.url+"students/hasPfe/"+id);
  } 
 
- login(user) {
-  return this.http.post(this.url+"login",user,this.httpOptions); 
- }
+ hasIntersheepAgreement(id): Observable<any> {
+  return this.http.get(this.url+"interShip_agreement/findintersheep/"+id);
+ } 
 
- signUp(user) {
-  return this.http.post(this.url+"signUp",user,this.httpOptions); 
- }
+
 
 } 

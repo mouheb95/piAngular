@@ -10,6 +10,7 @@ export class StudentComponent implements OnInit {
 
   constructor( private studentService : StudentService) { }
   currentStudent; 
+  show_profile = true;
 /* = {
     "name": "student",
     "lastname": null,
