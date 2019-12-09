@@ -1,12 +1,11 @@
 <workshop-header></workshop-header>
-<div class="kt-portlet__body">
+<div>
     <!--begin: Datatable -->
     <table class="table table-striped- table-bordered table-hover table-checkable" >
       <thead>
       <tr>
         <th>Order</th>
         <th>name</th>
-        <th>teacher who propose</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -15,7 +14,6 @@
       <tr *ngFor="let category of categorys; index as i">
         <td>{{category.Category_ID}}</td>
         <td> {{category.name}} </td>
-        <td> mizelet 5edmetha fil jee</td>
           <td >
               <div *ngIf="category.valid==0">
           <a class="btn btn-info" href="javascript:;" (click)='validate(category)'> validate </a>

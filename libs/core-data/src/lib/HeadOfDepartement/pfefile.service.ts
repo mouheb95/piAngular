@@ -32,9 +32,14 @@ export class PfefileService {
    }
 
    allTeacher(): Observable<any> {
-    return this.http.get<PfeFile[]>('http://localhost:9080/piPfe-web/rest/pfe_files/allTeacher');
+    return this.http.get<PfeFile[]>(this.url+'/getallteach');
     
    } 
+
+   allPfeFile(currentUser_id): Observable<any> {
+    return this.http.get<PfeFile[]>(this.url+'/dpfefile/'+currentUser_id);
+    
+   }
 
    affectationValidateur(obj) {
 
@@ -64,6 +69,11 @@ export class PfefileService {
     return this.http.get<PfeFile[]>(this.url+'/dpfefilewnr/'+currentUser_id);
     
    }
+
+   allPfeFileHistory(a): Observable<any> {
+    return this.http.get<PfeFile[]>(this.url+'/gethistory/'+a);
+    
+   } 
    
 
 }
@@ -75,6 +85,8 @@ export interface PfeFile {
   internshipReporter: Teacher; 
 
 }
+
+
 
 
 export interface Teacher {

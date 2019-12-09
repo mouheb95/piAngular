@@ -2,7 +2,7 @@
 
 <div>
     <div *ngIf="!show_add_option">
-        <button class="btn btn-outline-info" (click)="showAddOption(currentOption)">Add option</button>
+        <button class="btn btn-outline-info" (click)="showAddOption(emptyOption)">Add option</button>
         <!--end: Datatable -->
 
 
@@ -27,8 +27,8 @@
                     <td>{{option.departement.name}}</td>
                     <td nowrap>
 
-                        <button class="btn btn-success" (click)='showAddOption()'> add option</button>
-                        <a href="headofdepartement/option/" class="btn btn-danger" (click)='deleteOption(option.id)'> delete</a>
+                        <button class="btn btn-success" (click)='showAddOption(option)'> add option</button>
+                        <button  class="btn btn-danger" (click)='deleteOption(option.id)'> delete</button>
 
 
 

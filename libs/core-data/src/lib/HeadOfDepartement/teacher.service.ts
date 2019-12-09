@@ -18,7 +18,7 @@ export class TeacherService {
 
 
   allTeacher(): Observable<any> {
-    return this.http.get<Teacher[]>('http://localhost:9080/piPfe-web/rest/pfe_files/allTeacher');
+    return this.http.get<Teacher[]>(this.url+'/getallteach');
     
    } 
 

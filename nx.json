@@ -31,6 +31,9 @@
     },
     "ui-footer": {
       "tags": []
+    },
+    "ui-sign-up": {
+      "tags": []
     }
   }
 }

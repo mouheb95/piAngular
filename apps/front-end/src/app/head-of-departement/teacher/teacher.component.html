@@ -10,8 +10,11 @@
         <th>lastname</th>
         <th>email</th>
         <th>diplome</th>
+        <th>Limit Role</th>
+        <th>nbr Framer</th>
+        <th>nbr reporter</th>
+        <th>nbr validator</th>
         <th>note Final</th>
-        <th>note</th>
         <th>Action </th>
       </tr>
       </thead>
@@ -23,8 +26,11 @@
         <td>{{teacher.lastname}}</td>
         <td>{{teacher.email}}</td>
         <td>{{teacher.diplome}}</td>
+        <td>{{teacher.limitRole}}</td>
+        <td>{{teacher.nbf}}</td>
+        <td >{{teacher.nbr}}</td>
+        <td >{{teacher.nbv}}</td>
         <td >{{teacher.notefinal}}</td>
-        <td >{{teacher.note}}</td>
           <td>
           <a  class="btn btn-info" (click)='showGiveNotePopUp(teacher)'> give it a note </a>
           <ul>
@@ -72,7 +78,7 @@
                 </div>
             <img class="swal2-image" style="display: none;">
             <h2 class="swal2-title" id="swal2-title" style="display: flex;">add note</h2>
-            <input  [(ngModel)]="currentTeacher.nn" name="notefinal" >
+            <input  [(ngModel)]="currentTeacher.notefinal" name="hamma" >
             <button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
         </div>
         <div class="swal2-content">

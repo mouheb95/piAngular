@@ -1,0 +1,365 @@
+<workshop-header> </workshop-header>
+
+
+                <div class="kt-portlet">
+                        <div class="kt-portlet__head">
+                            <div class="kt-portlet__head-label">
+                                <h3 class="kt-portlet__head-title">
+                                    PFE File 
+                                </h3>
+                            </div>
+                            <div class="kt-portlet__head-toolbar">
+                                <a href="#" class="btn btn-clean btn-sm btn-bold" data-toggle="dropdown">
+                                    <i class="flaticon2-gear"></i> Export
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-fit dropdown-menu-md">
+                                    <!--begin::Nav-->
+                                    <ul class="kt-nav">
+                                        <li class="kt-nav__head">
+                                            Company Settings
+                                            <i class="flaticon2-information" data-toggle="kt-tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
+                                        </li>
+                                        <li class="kt-nav__separator"></li>
+                                        <li class="kt-nav__item">
+                                            <a href="#" class="kt-nav__link">
+                                                <i class="kt-nav__link-icon flaticon2-drop"></i>
+                                                <span class="kt-nav__link-text">Update Details</span>
+                                            </a>
+                                        </li>
+                                        <li class="kt-nav__item">
+                                            <a href="#" class="kt-nav__link">
+                                                <i class="kt-nav__link-icon flaticon2-calendar-8"></i>
+                                                <span class="kt-nav__link-text">New Staff</span>
+                                            </a>
+                                        </li>
+                                        <li class="kt-nav__item">
+                                            <a href="#" class="kt-nav__link">
+                                                <i class="kt-nav__link-icon flaticon2-link"></i>
+                                                <span class="kt-nav__link-text">New Owner</span>
+                                            </a>
+                                        </li>
+                                        <li class="kt-nav__item">
+                                            <a href="#" class="kt-nav__link">
+                                                <i class="kt-nav__link-icon flaticon2-new-email"></i>
+                                                <span class="kt-nav__link-text">Reports</span>
+                                                <span class="kt-nav__link-badge">
+                                                    <span class="kt-badge kt-badge--success">5</span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="kt-nav__separator"></li>
+                                        <li class="kt-nav__foot">
+                                            <a class="btn btn-label-danger btn-bold btn-sm" href="#">Manage company</a>
+                                            <a class="btn btn-clean btn-bold btn-sm" href="#" data-toggle="kt-tooltip" data-placement="right" title="" data-original-title="Click to learn more...">Learn more</a>
+                                        </li>
+                                    </ul>
+                                    <!--end::Nav-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kt-form kt-form--label-right">
+                            <div class="kt-portlet__body">
+                                <div class="form-group form-group-xs row">
+                                    <label class="col-4 col-form-label">ID:</label>
+                                    <div class="col-8">
+                                        <span class="form-control-plaintext kt-font-bolder"> {{id}} </span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-xs row">
+                                    <label class="col-4 col-form-label"> key </label>
+                                    <div class="col-8">
+                                        <span class="form-control-plaintext kt-font-bolder"> {{pfeFile.key}}</span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-xs row">
+                                    <label class="col-4 col-form-label">description</label>
+                                    <div class="col-8">
+                                        <span class="form-control-plaintext"><span class="kt-font-bolder"> {{pfeFile.description}}</span> &nbsp;<span class="kt-badge kt-badge--inline kt-badge--danger kt-badge--bold">Q4, 2019</span></span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-xs row">
+                                    <label class="col-4 col-form-label">verification</label>
+                                    <div class="col-8">
+                                        <span class="form-control-plaintext kt-font-bolder">{{pfeFile.verification}}</span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-xs row">
+                                    <label class="col-4 col-form-label">Problematic:</label>
+                                    <div class="col-8">
+                                        <span class="form-control-plaintext kt-font-bolder">
+                                                <a href="#">{{pfeFile.problematic}}</a>
+                                            </span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-xs row">
+                                    <label class="col-4 col-form-label">Fonctionality:</label>
+                                    <div class="col-8">
+                                        <span class="form-control-plaintext kt-font-bolder">
+                                                <a href="#">{{pfeFile.fonctionality}}</a>
+                                            </span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-xs row">
+                                    <label class="col-4 col-form-label">keyWord:</label>
+                                    <div class="col-8">
+                                        <span class="form-control-plaintext kt-font-bolder">
+                                                <a href="#">{{pfeFile.keyWord}}</a>
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kt-portlet__foot">
+                                <div class="kt-form__actions kt-space-between">
+                                    <a href="#" class="btn btn-label-brand btn-sm btn-bold">Manage company</a>
+            
+                                    <a href="#" class="btn btn-clean btn-sm btn-bold">Learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+
+
+                    <!-- begin:: Content -->
+	<div class="kt-container  kt-grid__item kt-grid__item--fluid">
+            <div class="kt-portlet">
+        <div class="kt-portlet__body kt-portlet__body--fit">
+            <div class="kt-grid kt-wizard-v1 kt-wizard-v1--white" id="kt_wizard_v1" data-ktwizard-state="step-first">
+                <div class="kt-grid__item">
+                    <!--begin: Form Wizard Nav -->
+                    <div class="kt-wizard-v1__nav">
+                        <!--doc: Remove "kt-wizard-v1__nav-items--clickable" class and also set 'clickableSteps: false' in the JS init to disable manually clicking step titles -->
+                        <div class="kt-wizard-v1__nav-items kt-wizard-v1__nav-items--clickable">
+                            <div class="kt-wizard-v1__nav-item" data-ktwizard-type="step" data-ktwizard-state="current">
+                                <div class="kt-wizard-v1__nav-body">
+                                    <div class="kt-wizard-v1__nav-icon">
+                                        <i class="flaticon-bus-stop"></i>
+                                    </div>
+                                    <div class="kt-wizard-v1__nav-label">
+                                        1. affecter framer 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kt-wizard-v1__nav-item"  data-ktwizard-type="step">
+                                <div class="kt-wizard-v1__nav-body">
+                                    <div class="kt-wizard-v1__nav-icon">
+                                        <i class="flaticon-list"></i>
+                                    </div>
+                                    <div class="kt-wizard-v1__nav-label">
+                                        2. Affecter reporter
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kt-wizard-v1__nav-item"  data-ktwizard-type="step">
+                                <div class="kt-wizard-v1__nav-body">
+                                    <div class="kt-wizard-v1__nav-icon">
+                                        <i class="flaticon-responsive"></i>
+                                    </div>
+                                    <div class="kt-wizard-v1__nav-label">
+                                        3. Affecter teacher ...
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="kt-wizard-v1__nav-item"  data-ktwizard-type="step">
+                                <div class="kt-wizard-v1__nav-body">
+                                    <div class="kt-wizard-v1__nav-icon">
+                                        <i class="flaticon-globe"></i>
+                                    </div>
+                                    <div class="kt-wizard-v1__nav-label">
+                                            4. affecter date et salle soutenance
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end: Form Wizard Nav -->
+    
+                </div>
+                <div class="kt-grid__item kt-grid__item--fluid kt-wizard-v1__wrapper">
+                    <!--begin: Form Wizard Form-->
+                    <form method="post" class="kt-form" id="kt_form" (Submit)="affectationReporter(b.id)">
+                        <!--begin: Form Wizard Step 1-->
+                        <div class="kt-wizard-v1__content" data-ktwizard-type="step-content" data-ktwizard-state="current">
+                            <div class="kt-heading kt-heading--md">Setup affecter reporter</div>
+                            <div class="kt-form__section kt-form__section--first">
+                                <div class="kt-wizard-v1__form">
+                
+                            
+                                    <div class="row">
+                                      
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                            <label>Reporter name:</label>
+                                            <select name="country" class="form-control" [(ngModel)]="b" >
+                                                <option value="">Select</option>
+                                                <option value="AI" *ngFor="let b of listTeacher" [value]="b.id"  name="id">{{b.name}}</option>
+
+                                            </select>
+                                           
+                                        </div>
+                                        <button type="submit" (click)="affectationReporter(b.id)"> affectation</button>
+                                            this pfe file reporter'name : {{pfeFile.internship_reporter.name}}
+                                            <br>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end: Form Wizard Step 1-->
+    
+                        <!--begin: Form Wizard Step 2-->
+                        <div class="kt-wizard-v1__content" data-ktwizard-type="step-content" data-ktwizard-state="current">
+                                <div class="kt-heading kt-heading--md">Setup affecter framer</div>
+                                <div class="kt-form__section kt-form__section--first">
+                                    <div class="kt-wizard-v1__form">
+                    
+                                
+                                        <div class="row">
+                                          
+                                                <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                        <label>Framer name:</label>
+                                                        <select name="country" class="form-control" [(ngModel)]="b" >
+                                                            <option value="">Select</option>
+                                                            <option value="AI" *ngFor="let b of listTeacher" [value]="b.id"  name="id">{{b.name}}</option>
+            
+                                                        </select>
+                                                       
+                                                    </div>
+                                                    <button type="submit" (click)="affectationReporter(b.id)"> affectation</button>
+                                                        this pfe file framer'name : {{pfeFile.framer.name}}
+                                                        <br>
+                                                       
+                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!--end: Form Wizard Step 2-->
+    
+                        <!--begin: Form Wizard Step 3-->
+                        <div class="kt-wizard-v1__content" data-ktwizard-type="step-content" data-ktwizard-state="current">
+                                <div class="kt-heading kt-heading--md">Setup affecter Validator</div>
+                                <div class="kt-form__section kt-form__section--first">
+                                    <div class="kt-wizard-v1__form">
+                    
+                                
+                                        <div class="row">
+                                          
+                                                <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                        <label>validator name:</label>
+                                                        <select name="country" class="form-control" [(ngModel)]="b" >
+                                                            <option value="">Select</option>
+                                                            <option value="AI" *ngFor="let b of listTeacher" [value]="b.id"  name="id">{{b.name}}</option>
+            
+                                                        </select>
+                                                       
+                                                    </div>
+                                                    <button type="submit" (click)="affectationReporter(b.id)"> affectation</button>
+                                                        this pfe file validator'name : {{pfeFile.validator.name}}
+                                                        <br>
+                                                       
+                                                     
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!--end: Form Wizard Step 3-->
+    
+                        <!--begin: Form Wizard Step 4-->
+                        <div class="kt-wizard-v1__content" data-ktwizard-type="step-content">
+                            <div class="kt-heading kt-heading--md">Setup defense </div>
+                            <div class="kt-form__section kt-form__section--first">
+                                <div class="kt-wizard-v1__form">
+                                    <div class="form-group">
+                                        <label>Address Line 1</label>
+                                        <input type="text" class="form-control" name="locaddress1" placeholder="Address Line 1" value="Address Line 1">
+                                        <span class="form-text text-muted">Please enter your Address.</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address Line 2</label>
+                                        <input type="text" class="form-control" name="locaddress2" placeholder="Address Line 2" value="Address Line 2">
+                                        <span class="form-text text-muted">Please enter your Address.</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label>Postcode</label>
+                                                <input type="text" class="form-control" name="locpostcode" placeholder="Postcode" value="3072">
+                                                <span class="form-text text-muted">Please enter your Postcode.</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input type="text" class="form-control" name="loccity" placeholder="City" value="Preston">
+                                                <span class="form-text text-muted">Please enter your City.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label>State</label>
+                                                <input type="text" class="form-control" name="locstate" placeholder="State" value="VIC">
+                                                <span class="form-text text-muted">Please enter your Postcode.</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                            <label>Country:</label>
+                                            <select name="loccountry" class="form-control">
+                                             
+                                                <option value="AR">Argentina</option>
+                                                <option value="AM">Armenia</option>
+                                                <option value="AW">Aruba</option>
+                                                <option value="AU" selected>Australia</option>
+                                               
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end: Form Wizard Step 4-->
+    
+                        <!--begin: Form Wizard Step 5-->
+                        
+                        <!--end: Form Wizard Step 5-->
+    
+                        <!--begin: Form Actions -->
+                        <div class="kt-form__actions">
+                                this pfe file framer'name : {{pfeFile.internship_reporter.name}}
+                                <br>
+                                this pfe file framer'name : {{pfeFile.validator.name}}
+                                <br>
+                                 this pfe file framer'name : {{pfeFile.framer.name}}
+                            <button class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-prev">
+                                Previous
+                            </button>
+                            <button class="btn btn-success btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-submit">
+                                Submit
+                            </button>
+                            <button type="submit" class="btn btn-brand btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-next">
+                                Next Step
+                            </button>
+                        </div>
+                        <!--end: Form Actions -->
+                    </form>
+                    <!--end: Form Wizard Form-->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- end:: Content -->					
+
+
+
+    <workshop-footer></workshop-footer>

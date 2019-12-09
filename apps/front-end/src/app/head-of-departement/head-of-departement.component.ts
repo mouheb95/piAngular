@@ -11,15 +11,18 @@ export class HeadOfDepartementComponent implements OnInit {
 
   list_pfefile = [] ;
   list_teacher = [] ;
+  list_pfefile_history = [];
   showpopup1= false;
   showpopup2= false;
   showpopup3= false;
   teacher ;
   Currentpfefile;
   pfefile;
+  pfefileHistory;
   btnaffecterV= false;
   btnaffecterF= false;
   btnaffecterR= false;
+  showHistory= false;
   currentUser= JSON.parse(localStorage.getItem('currentUser')).id;
 
 
@@ -29,7 +32,8 @@ export class HeadOfDepartementComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser;
-    this.getPfeFileWithoutValidator();
+    this.getPfeFile();
+    console.log("cvbjnk,lm",this.getPfeFile())
     
     
   }
@@ -185,7 +189,6 @@ getPfeFileWithoutNoteF(){
 
 getPfeFileWithoutNoteR(){
   this.pfefileService.pfeFilesWithoutNoteR(this.currentUser).subscribe(pfeFile => {
-    console.log(pfeFile);
     this.list_pfefile = pfeFile;
     this.btnaffecterV= false;
     this.btnaffecterF= false;
@@ -193,6 +196,28 @@ getPfeFileWithoutNoteR(){
 
  })
 }
+
+
+getPfeFileHistory(a){
+  this.showHistory= true;
+  this.pfefileService.allPfeFileHistory(a).subscribe(pfeFile => {
+    this.list_pfefile_history = pfeFile;
+    console.log("testhistpru"+pfeFile)
+    
+ })
+ }
+
+
+ getPfeFile(){
+  this.pfefileService.allPfeFile(this.currentUser).subscribe(pfeFile => {
+    this.list_pfefile = pfeFile;
+    console.log("ghjkpk",this.list_pfefile)
+ })
+ }
+
+ pfeHistoryOut(){
+   this.showHistory=false;
+ }
 
 
 }

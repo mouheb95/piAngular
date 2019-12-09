@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class CategoryComponent implements OnInit {
 
-  currentUser: User;
-  currentUserSubscription: Subscription;
+  currentUser= JSON.parse(localStorage.getItem('currentUser')).id;
+    currentUserSubscription: Subscription;
 
 
 current_category;

@@ -281,6 +281,33 @@
         }
       },
       "schematics": {}
+    },
+    "ui-sign-up": {
+      "projectType": "library",
+      "root": "libs/ui-sign-up",
+      "sourceRoot": "libs/ui-sign-up/src",
+      "prefix": "workshop",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-sign-up/tsconfig.lib.json",
+              "libs/ui-sign-up/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui-sign-up/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-sign-up/jest.config.js",
+            "tsConfig": "libs/ui-sign-up/tsconfig.spec.json",
+            "setupFile": "libs/ui-sign-up/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

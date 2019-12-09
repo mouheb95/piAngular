@@ -17,7 +17,8 @@
       "@workshop/ui-login": ["libs/ui-login/src/index.ts"],
       "@workshop/ui-toolbar": ["libs/ui-toolbar/src/index.ts"],
       "@workshop/ui-header": ["libs/ui-header/src/index.ts"],
-      "@workshop/ui-footer": ["libs/ui-footer/src/index.ts"]
+      "@workshop/ui-footer": ["libs/ui-footer/src/index.ts"],
+      "@workshop/ui-sign-up": ["libs/ui-sign-up/src/index.ts"]
     },
     "module": "esnext",
     "rootDir": "."
