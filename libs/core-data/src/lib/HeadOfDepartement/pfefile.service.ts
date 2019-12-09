@@ -16,18 +16,18 @@ export class PfefileService {
   constructor(private http: HttpClient) { }
 
 
-  pfeFilesWithoutValidator(): Observable<any> {
-    return this.http.get<PfeFile[]>(this.url+'/dpfefilewv/57');
+  pfeFilesWithoutValidator(currentUser_id): Observable<any> {
+    return this.http.get<PfeFile[]>(this.url+'/dpfefilewv/'+currentUser_id);
     
    } 
 
-   pfeFilesWithoutFramer(): Observable<any> {
-    return this.http.get<PfeFile[]>(this.url+'/dpfefilewf/57');
+   pfeFilesWithoutFramer(currentUser_id): Observable<any> {
+    return this.http.get<PfeFile[]>(this.url+'/dpfefilewf/'+currentUser_id);
     
    } 
 
-   pfeFilesWithoutReporter(): Observable<any> {
-    return this.http.get<PfeFile[]>(this.url+'/dpfefilewr/57');
+   pfeFilesWithoutReporter(currentUser_id): Observable<any> {
+    return this.http.get<PfeFile[]>(this.url+'/dpfefilewr/'+currentUser_id);
     
    }
 
@@ -55,13 +55,13 @@ export class PfefileService {
     
    }
 
-   pfeFilesWithoutNoteF(): Observable<any> {
-    return this.http.get<PfeFile[]>(this.url+'/dpfefilewnf/57');
+   pfeFilesWithoutNoteF(currentUser_id): Observable<any> {
+    return this.http.get<PfeFile[]>(this.url+'/dpfefilewnf/'+currentUser_id);
     
    }
 
-   pfeFilesWithoutNoteR(): Observable<any> {
-    return this.http.get<PfeFile[]>(this.url+'/dpfefilewnr/57');
+   pfeFilesWithoutNoteR(currentUser_id): Observable<any> {
+    return this.http.get<PfeFile[]>(this.url+'/dpfefilewnr/'+currentUser_id);
     
    }
    

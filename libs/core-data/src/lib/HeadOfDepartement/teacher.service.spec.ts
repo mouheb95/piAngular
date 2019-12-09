@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PfefileService } from './pfefile.service';
+import { TeacherService } from './teacher.service';
 
-describe('PfefileService', () => {
+describe('TeacherService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PfefileService = TestBed.get(PfefileService);
+    const service: TeacherService = TestBed.get(TeacherService);
     expect(service).toBeTruthy();
   });
 });

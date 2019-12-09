@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PfefileService } from './pfefile.service';
+import { OptionService } from './option.service';
 
-describe('PfefileService', () => {
+describe('OptionService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PfefileService = TestBed.get(PfefileService);
+    const service: OptionService = TestBed.get(OptionService);
     expect(service).toBeTruthy();
   });
 });

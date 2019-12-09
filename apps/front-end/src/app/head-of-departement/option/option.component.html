@@ -1,0 +1,145 @@
+<workshop-header></workshop-header>
+
+<div>
+    <div *ngIf="!show_add_option">
+        <button class="btn btn-outline-info" (click)="showAddOption(currentOption)">Add option</button>
+        <!--end: Datatable -->
+
+
+        <table class="table table-striped- table-bordered table-hover table-checkable">
+
+            <thead>
+                <tr>
+
+                    <th> ID</th>
+                    <th>fonctionality</th>
+                    <th>key</th>
+                    <th>departement name</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let option of options; index as i">
+                    <td>{{option.id}}</td>
+                    <td> {{option.name}} </td>
+                    <td>{{option.score}}</td>
+                    <td>{{option.departement.name}}</td>
+                    <td nowrap>
+
+                        <button class="btn btn-success" (click)='showAddOption()'> add option</button>
+                        <a href="headofdepartement/option/" class="btn btn-danger" (click)='deleteOption(option.id)'> delete</a>
+
+
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+    <!--end: Datatable -->
+</div>
+
+
+
+
+
+<!--Begin:: Form Content-->
+<div *ngIf="show_add_option" class="tab-pane active" id="kt_apps_contacts_view_tab_2" role="tabpanel">
+    <form class="kt-form kt-form--label-right">
+        <div class="kt-form__body">
+            <div class="kt-section kt-section--first">
+                <div class="kt-section__body">
+                    <div class="row">
+                        <label class="col-xl-3"></label>
+                        <div class="col-lg-9 col-xl-6">
+                            <h3 class="kt-section__title kt-section__title-sm">Option:</h3>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label">option name</label>
+                        <div class="col-lg-9 col-xl-6">
+                            <input class="form-control" type="text" [(ngModel)]="currentOption.name" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label">score</label>
+                        <div class="col-lg-9 col-xl-6">
+                            <input class="form-control" type="text" [(ngModel)]="currentOption.score" name="score">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="kt-separator kt-separator--space-lg kt-separator--fit kt-separator--border-solid"></div>
+
+        <div class="kt-form__actions">
+            <div class="row">
+                <div class="col-xl-3"></div>
+                <div class="col-lg-9 col-xl-6">
+                    <button class="btn btn-brand btn-bold" (click)="saveChanges(currentOption)">Save changes</button>
+                    <a (click)="returnPage()" href="/headofdepartement/option#" class="btn btn-clean btn-bold">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!--End:: Form Content-->
+
+
+
+
+
+
+
+
+
+<!--   pop up ta3 confirmation ajout -->
+<div *ngIf="showOK" class="swal2-container swal2-center swal2-shown" style="overflow-y: auto;">
+    <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show"
+        tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: flex;">
+        <div class="swal2-header">
+            <ul class="swal2-progress-steps" style="display: none;"></ul>
+            <div class="swal2-icon swal2-error" style="display: none;"><span class="swal2-x-mark"><span
+                        class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div>
+            <div class="swal2-icon swal2-question" style="display: none;"></div>
+            <div class="swal2-icon swal2-warning" style="display: none;"></div>
+            <div class="swal2-icon swal2-info" style="display: none;"></div>
+            <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
+                <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div><span
+                    class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+                <div class="swal2-success-ring"></div>
+                <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+            </div><img class="swal2-image" style="display: none;">
+            <h2 class="swal2-title" id="swal2-title" style="display: flex;">Good job!</h2><button type="button"
+                class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
+        </div>
+        <div class="swal2-content">
+            <div id="swal2-content" style="display: block;">You clicked the button!</div><input class="swal2-input"
+                style="display: none;"><input type="file" class="swal2-file" style="display: none;">
+            <div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select
+                class="swal2-select" style="display: none;"></select>
+            <div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox"
+                style="display: none;"><input type="checkbox"><span class="swal2-label"></span></label><textarea
+                class="swal2-textarea" style="display: none;"></textarea>
+            <div class="swal2-validation-message" id="swal2-validation-message"></div>
+        </div>
+        <div class="swal2-actions"><button (click)="returnPage()" type="button" class="swal2-confirm swal2-styled" aria-label=""
+                style="display: inline-block; border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">OK</button><button
+                (click)="returnPage" type="button" class="swal2-cancel swal2-styled" aria-label="" style="display: none;">Cancel</button>
+        </div>
+        <div class="swal2-footer" style="display: none;"></div>
+    </div>
+</div>
+
+
+
+
+<workshop-footer></workshop-footer>

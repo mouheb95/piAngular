@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PfefileService } from './pfefile.service';
+import { CategoryService } from './category.service';
 
-describe('PfefileService', () => {
+describe('CategoryService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PfefileService = TestBed.get(PfefileService);
+    const service: CategoryService = TestBed.get(CategoryService);
     expect(service).toBeTruthy();
   });
 });
