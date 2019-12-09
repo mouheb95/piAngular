@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UniversityService } from '../../../../../libs/core-data/src/lib/university/university.service';
 import { University } from './University'
 import { PfeFile } from '@workshop/core-data';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-university',
@@ -17,6 +18,9 @@ export class UniversityComponent implements OnInit {
   University: any = [];
 
   currentUniversity=new University();
+  displayedColumns: string[] = ['University Id', 'Name', 'Address', 'Owner','Site','Actions'];
+  dataSource = new MatTableDataSource<University>(this.University);
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   ngOnInit() {
 
@@ -24,11 +28,12 @@ export class UniversityComponent implements OnInit {
       this.University = res
     })
 
+    this.dataSource.paginator = this.paginator;
 
   }
 
   deleteUniversity(id: any) {
-    this.universityService.deleteUniversity(10).subscribe(res => {
+    this.universityService.deleteUniversity(7).subscribe(res => {
       this.University = res
     })
   }
