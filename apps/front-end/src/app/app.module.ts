@@ -20,12 +20,16 @@ import { ListStudentComponent } from './list-student/list-student.component';
 import { HeadOfDepartementComponent } from './head-of-departement/head-of-departement.component';
 import { HeadOfDepartementModule } from './head-of-departement/head-of-departement.module';
 import { AppRoutingModule } from './app-routing.module';
-import { CategoryModule } from './category/category.module';
+import { CategoryModule } from './head-of-departement/category/category.module';
 import { CategoryComponent } from './category/category.component';
 import { ListStudentModule } from './list-student/list-student.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { APP_BASE_HREF } from '@angular/common';
 import { UiLoginModule } from '@workshop/ui-login';
+import { ChartsModule } from 'ng2-charts';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OptionModule } from './head-of-departement/option/option.module';
+import { TeacherModule } from './head-of-departement/teacher/teacher.module';
 //import { UiSignUpModule } from '@workshop/ui-sign-up';
 
 
@@ -62,11 +66,17 @@ import { UiLoginModule } from '@workshop/ui-login';
     ReactiveFormsModule,
     HeadOfDepartementModule,
     CategoryModule,
-    AppRoutingModule,
+    OptionModule,
     DashboardModule,
     AppRoutingModule,
     UiLoginModule,
+    ChartsModule,
+    Ng2SearchPipeModule,
   //  UiSignUpModule
+    TeacherModule,
+    CategoryModule,
+    HomeModule,
+    AppRoutingModule
     
     
     

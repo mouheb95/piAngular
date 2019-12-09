@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ListStudentComponent } from './list-student.component';
 import { UiFooterModule } from '@workshop/ui-footer';
 import { UiHeaderModule } from '@workshop/ui-header';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UiHeaderModule } from '@workshop/ui-header';
     FormsModule,
     ListStudentRoutingModule,
     UiFooterModule,
-    UiHeaderModule
+    UiHeaderModule,
+    Ng2SearchPipeModule
   ],
   exports: [ListStudentComponent]
 })

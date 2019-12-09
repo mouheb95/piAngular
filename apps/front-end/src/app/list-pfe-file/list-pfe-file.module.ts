@@ -7,6 +7,7 @@ import { ListPfeFileComponent } from './list-pfe-file.component';
 import { PfeFileModule } from '../pfe-file/pfe-file.module';
 import { UiHeaderModule } from '@workshop/ui-header';
 import { UiFooterModule } from '@workshop/ui-footer';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UiFooterModule } from '@workshop/ui-footer';
     ListPfeFileRoutingModule,
     PfeFileModule,
     UiHeaderModule,
-    UiFooterModule
+    UiFooterModule,
+    Ng2SearchPipeModule
   ],
   exports: [ListPfeFileComponent]
 })

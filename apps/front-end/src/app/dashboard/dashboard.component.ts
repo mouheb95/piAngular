@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '@workshop/core-data';
+import { SingleDataSet, Label } from 'ng2-charts';
 
 
 @Component({
@@ -8,30 +10,60 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
-  public chartType: string = 'pie';
+  a:any;
+  constructor( private dashboard : DashboardService) { }
 
-  public chartDatasets: Array<any> = [
-    { data: [300, 50, 100, 40, 120], label: 'My First dataset' }
-  ];
+  
+  AllStageEtudiantEtranger() : number{
+    this.dashboard.AllStageEtudiantEtranger().subscribe(res => {
+      
+      this.a=res;
+      
+   })
+   console.log(this.a)
+   return this.a;
+   
+  }
 
-  public chartLabels: Array<any> = ['Red', 'Green', 'Yellow', 'Grey', 'Dark Grey'];
-
-  public chartColors: Array<any> = [
-    {
-      backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
-      hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774'],
-      borderWidth: 2,
+  reset() {
+    const emptyP = {
+      id :'',
     }
-  ];
+    this.a =emptyP;
+  }
 
-  public chartOptions: any = {
+  
+  public pieChartLabels: Label[] = ['pourcentage stage à l etranger', 'pourcentage stage en tunis'];
+  public pieChartData: SingleDataSet = [20,80];
+  public pieChartType = 'pie';
+
+
+
+
+
+
+
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
     responsive: true
   };
-  public chartClicked(e: any): void { }
-  public chartHovered(e: any): void { }
+
+  public barChartLabels = ['2018', '2019'];
+  public barChartType = 'bar';
+  public barChartLegend = true;
+
+  public barChartData = [
+    {data: [80, 60], label: 'In Tunis'},
+    {data: [40, 25], label: 'Off Tunis'}
+  ];
+
+
+
+
+
 
   ngOnInit() {
+    this.AllStageEtudiantEtranger();
   }
 
 }

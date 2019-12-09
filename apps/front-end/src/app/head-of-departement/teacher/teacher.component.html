@@ -1,0 +1,110 @@
+<workshop-header></workshop-header>
+
+<div class="kt-portlet__body">
+    <!--begin: Datatable -->
+    <table class="table table-striped- table-bordered table-hover table-checkable" >
+      <thead>
+      <tr>
+        <th>Order</th>
+        <th>name</th>
+        <th>lastname</th>
+        <th>email</th>
+        <th>diplome</th>
+        <th>Limit Role</th>
+        <th>nbr Framer</th>
+        <th>nbr reporter</th>
+        <th>nbr validator</th>
+        <th>note Final</th>
+        <th>Action </th>
+      </tr>
+      </thead>
+  
+      <tbody>
+      <tr *ngFor="let teacher of teachers; index as i">
+        <td>{{teacher.id}}</td>
+        <td> {{teacher.name}} </td>
+        <td>{{teacher.lastname}}</td>
+        <td>{{teacher.email}}</td>
+        <td>{{teacher.diplome}}</td>
+        <td>{{teacher.limitRole}}</td>
+        <td>{{teacher.nbf}}</td>
+        <td >{{teacher.nbr}}</td>
+        <td >{{teacher.nbv}}</td>
+        <td >{{teacher.notefinal}}</td>
+          <td>
+          <a  class="btn btn-info" (click)='showGiveNotePopUp(teacher)'> give it a note </a>
+          <ul>
+  
+          </ul>
+  
+  
+        </td>
+  
+      </tr>
+  
+      </tbody>
+  
+    </table>
+    <!--end: Datatable -->
+  </div>
+  
+  
+  
+  
+
+
+  
+
+
+<!-- add note teacher -->
+<div *ngIf="show_give_note" class="swal2-container swal2-center swal2-shown" style="overflow-y: auto;">
+    <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: flex;">
+        <div class="swal2-header">
+            <ul class="swal2-progress-steps" style="display: none;"></ul>
+            <div class="swal2-icon swal2-error" style="display: none;">
+                <span class="swal2-x-mark">
+                <span class="swal2-x-mark-line-left"></span>
+                <span class="swal2-x-mark-line-right"></span></span>
+            </div>
+                <div class="swal2-icon swal2-question" style="display: none;"></div>
+                <div class="swal2-icon swal2-warning swal2-animate-warning-icon" style="display: flex;"></div>
+                <div class="swal2-icon swal2-info" style="display: none;"></div>
+                <div class="swal2-icon swal2-success" style="display: none;">
+                    <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+                    <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+                    <div class="swal2-success-ring"></div> <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                    <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);">
+                    </div>
+                </div>
+            <img class="swal2-image" style="display: none;">
+            <h2 class="swal2-title" id="swal2-title" style="display: flex;">add note</h2>
+            <input  [(ngModel)]="currentTeacher.nn" name="notefinal" >
+            <button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
+        </div>
+        <div class="swal2-content">
+        <input class="swal2-input" style="display: none;"><input type="file" class="swal2-file" style="display: none;">
+        <div class="swal2-range" style="display: none;">
+            <input type="range"><output></output>
+        </div><select class="swal2-select" style="display: none;"></select>
+            <div class="swal2-radio" style="display: none;">
+            </div>
+            <label for="swal2-checkbox" class="swal2-checkbox" style="display: none;">
+                <input type="checkbox"><span class="swal2-label"></span>
+            </label>
+                <textarea class="swal2-textarea" style="display: none;"></textarea>
+                <div class="swal2-validation-message" id="swal2-validation-message">
+
+                </div>
+        </div>
+            <div class="swal2-actions">
+                <a classe="btn btn-info" href="headofdepartement/teacher/" (click)='addNoteTeacher(currentTeacher)'  type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block; border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">add note!</a>
+                <button  (click)='hideGiveNotePopUp()' type="button" class="swal2-cancel swal2-styled" aria-label="" style="display: inline-block;">Cancel</button>
+            </div>
+        <div class="swal2-footer" style="display: none;"></div>
+    </div>
+</div>
+<!-- end add note teacher ----------------------------------------------------------------------------------------------------->
+
+
+
+<workshop-footer></workshop-footer>

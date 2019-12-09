@@ -9,30 +9,37 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 })
 export class HeadOfDepartementComponent implements OnInit {
 
-  constructor( private pfefileService : PfefileService) { }
-
   list_pfefile = [] ;
   list_teacher = [] ;
+  list_pfefile_history = [];
   showpopup1= false;
   showpopup2= false;
   showpopup3= false;
   teacher ;
   Currentpfefile;
   pfefile;
+  pfefileHistory;
   btnaffecterV= false;
   btnaffecterF= false;
   btnaffecterR= false;
+  showHistory= false;
+  currentUser= JSON.parse(localStorage.getItem('currentUser')).id;
 
+
+  constructor( private pfefileService : PfefileService) { }
+
+  
 
   ngOnInit() {
-    this.getPfeFileWithoutValidator();
+    this.currentUser;
+    this.getPfeFile();
     
     
   }
 
   getPfeFileWithoutValidator(){
-    this.pfefileService.pfeFilesWithoutValidator().subscribe(pfeFile => {
-      console.log(pfeFile);
+    this.pfefileService.pfeFilesWithoutValidator(this.currentUser).subscribe(pfeFile => {
+
       this.list_pfefile = pfeFile;
       this.btnaffecterV= true;
       this.btnaffecterF= false;
@@ -42,8 +49,8 @@ export class HeadOfDepartementComponent implements OnInit {
   }
 
   getPfeFileWithoutReporter(){
-    this.pfefileService.pfeFilesWithoutReporter().subscribe(pfeFile => {
-      console.log(pfeFile);
+    this.pfefileService.pfeFilesWithoutReporter(this.currentUser).subscribe(pfeFile => {
+ 
       this.list_pfefile = pfeFile;
       this.btnaffecterR= true;
       this.btnaffecterF= false;
@@ -53,8 +60,8 @@ export class HeadOfDepartementComponent implements OnInit {
   }
 
   getPfeFileWithoutFramer(){
-    this.pfefileService.pfeFilesWithoutFramer().subscribe(pfeFile => {
-      console.log(pfeFile);
+    this.pfefileService.pfeFilesWithoutFramer(this.currentUser).subscribe(pfeFile => {
+ 
       this.list_pfefile = pfeFile;
       this.btnaffecterF= true;
       this.btnaffecterV= false;
@@ -66,7 +73,7 @@ export class HeadOfDepartementComponent implements OnInit {
 
   getAllTeacher(){
     this.pfefileService.allTeacher().subscribe(teacher => {
-      console.log(teacher);
+  
       this.list_teacher = teacher;
 
    })
@@ -83,7 +90,7 @@ export class HeadOfDepartementComponent implements OnInit {
   }
   onChangeObj(newobj){
     this.teacher = newobj;
-    console.log(newobj)
+
   }
 
   affectValidateur(teacher,pfefile){
@@ -94,7 +101,7 @@ export class HeadOfDepartementComponent implements OnInit {
       "fileId":pfefile.id
     }
     this.pfefileService.affectationValidateur(obj).subscribe(teacher => {
-      console.log(teacher);
+  
       
    })
    this.showpopup1 = !this.showpopup1;
@@ -105,7 +112,7 @@ export class HeadOfDepartementComponent implements OnInit {
 
   getTeacherByCategory(a){
     this.pfefileService.teacherByCategory(a).subscribe(teacher => {
-      console.log(teacher);
+      
       this.list_teacher = teacher;
 
    })
@@ -121,7 +128,7 @@ export class HeadOfDepartementComponent implements OnInit {
       "fileId":pfefile.id
     }
     this.pfefileService.affectationFramer(obj).subscribe(teacher => {
-      console.log(teacher);
+    
       
    })
    this.showpopup2 = !this.showpopup2;
@@ -165,7 +172,9 @@ export class HeadOfDepartementComponent implements OnInit {
 /**************************************pfe files without note framer************************ */
 
 getPfeFileWithoutNoteF(){
-  this.pfefileService.pfeFilesWithoutNoteF().subscribe(pfeFile => {
+ 
+
+  this.pfefileService.pfeFilesWithoutNoteF(this.currentUser).subscribe(pfeFile => {
     console.log(pfeFile);
     this.list_pfefile = pfeFile;
     this.btnaffecterV= false;
@@ -178,8 +187,7 @@ getPfeFileWithoutNoteF(){
 /**************************************pfe files without note reporter************************ */
 
 getPfeFileWithoutNoteR(){
-  this.pfefileService.pfeFilesWithoutNoteR().subscribe(pfeFile => {
-    console.log(pfeFile);
+  this.pfefileService.pfeFilesWithoutNoteR(this.currentUser).subscribe(pfeFile => {
     this.list_pfefile = pfeFile;
     this.btnaffecterV= false;
     this.btnaffecterF= false;
@@ -187,6 +195,27 @@ getPfeFileWithoutNoteR(){
 
  })
 }
+
+
+getPfeFileHistory(a){
+  this.showHistory= true;
+  this.pfefileService.allPfeFileHistory(a).subscribe(pfeFile => {
+    this.list_pfefile_history = pfeFile;
+    
+ })
+ }
+
+
+ getPfeFile(){
+  this.pfefileService.allPfeFile(this.currentUser).subscribe(pfeFile => {
+    this.list_pfefile = pfeFile;
+    console.log(this.list_pfefile)
+ })
+ }
+
+ pfeHistoryOut(){
+   this.showHistory=false;
+ }
 
 
 }

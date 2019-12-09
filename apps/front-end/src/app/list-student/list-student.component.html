@@ -2,7 +2,6 @@
   <input name="kk" [(ngModel)]="gg.kk"> 
 </form> -->
 
-*********/*/*/*/*/*/*/***********************/////////////////////////******************
 <workshop-header> </workshop-header>
 
 
@@ -201,6 +200,7 @@
 			</div>
 		</div>
 
+		<input type="text" placeholder="Search..." [(ngModel)]="term">
 
 
 		<div class="kt-portlet__body">
@@ -221,7 +221,7 @@
 				</thead>
 
 				<tbody>
-					<tr *ngFor="let a of students;">
+					<tr *ngFor="let a of students | filter:term">
 						<td>{{a.id}}</td>
 						<td>{{a.name}}</td>
 						<td>{{a.lastname}}</td>

@@ -18,7 +18,7 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
 
-  findall(): Observable<any> {
+  AllStageEtudiantEtranger(): Observable<any> {
     return this.http.get<student[]>(this.url+'/AllStageEtudiantEtranger');
     
    }

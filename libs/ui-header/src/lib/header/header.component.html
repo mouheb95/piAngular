@@ -566,7 +566,7 @@
             </div>
         </a>
         <div class="kt-notification__custom kt-space-between">
-            <a href="custom/user/login-v2.html" target="_blank" class="btn btn-label btn-label-brand btn-sm btn-bold">Sign Out</a>
+            <a (click)="logout()" target="_blank" class="btn btn-label btn-label-brand btn-sm btn-bold">Sign Out</a>
     
             <a href="custom/user/login-v2.html" target="_blank" class="btn btn-clean btn-sm btn-bold">Upgrade Plan</a>
         </div>
@@ -594,10 +594,10 @@
             <span class="kt-menu__link-text">{{link.title}}</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
     
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||| u can activate this if u need a menu  |||||||||||||||||||||| -->
-            <!-- <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
-                <ul class="kt-menu__subnav">
-                    <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true">
-                        <a  href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon">
+            <!--  <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                <ul  *ngFor="let linkh of linksHeadOfDepartement" class="kt-menu__subnav">
+                    <li  class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true">
+                        <a  [routerLink]="linkh.path" routerLinkActive="active" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <polygon points="0 0 24 0 24 24 0 24"/>
@@ -606,23 +606,35 @@
                             </g>
                         </svg></span>
     
-                            <span class="kt-menu__link-text">Todo</span><i class="kt-menu__hor-arrow la la-angle-right"></i>
-                            <i class="kt-menu__ver-arrow la la-angle-right"></i>
+                            <span class="kt-menu__link-text">{{linkh.title}}</span>
                         </a>
-                        <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--right">
-                            <ul class="kt-menu__subnav">
-                                    <li class="kt-menu__item"  aria-haspopup="true">
-                                        <a > class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-                                        <span class="kt-menu__link-text">Docs</span></a>
-                                    </li>
-                            </ul>
-                        </div> 
+                  
                     </li>
     
                 </ul>
-            </div> -->
+            </div>  -->
     </li>
     
+
+<!-- he d of departement li -->
+
+
+        <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel kt-menu__item--open-dropdown kt-menu__item--hover" data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                <span class="kt-menu__link-text">Head of departement</span>
+                <i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                    <ul  class="kt-menu__subnav">
+                        <li *ngFor="let linkh of linksHeadOfDepartement"  class="kt-menu__item " aria-haspopup="true">
+                        <a [routerLink]="linkh.path" routerLinkActive="active" class="kt-menu__link ">
+                            <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                            <span class="kt-menu__link-text">{{linkh.title}}</span></a>
+                        </li>
+                            
+                        </ul>
+                </div>
+            </li>
+
+
     <!--  end of nav bar -->
     </ul>
         </div>

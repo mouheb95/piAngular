@@ -2,56 +2,95 @@
 
 
 
-<!-- <div class="kt-portlet kt-portlet--height-fluid">
+<div class="kt-portlet kt-portlet--height-fluid">
 	<div class="kt-widget14">
 		<div class="kt-widget14__header">
 			<h3 class="kt-widget14__title">
-				Revenue Change            
+				Statistique            
 			</h3>
 			<span class="kt-widget14__desc">
-				Revenue change breakdown by cities
+				pourcentage des stage de pfe en dehors de tunis par raopprt au global
 			</span>
 		</div>
 		<div class="kt-widget14__content">
 			<div class="kt-widget14__chart">
 
-                    <div id="kt_chart_revenue_change" style="height: 150px; width: 150px;">
-                       
+                    <div  style="height: 700; width: 700px;">
+						<div style="display: block">
+							<canvas baseChart
+									[data]="pieChartData"
+									[labels]="pieChartLabels"
+									[chartType]="pieChartType"></canvas>
+						  </div>
+						
                     </div>
 			</div>  		 
-			<div class="kt-widget14__legends">
-				<div class="kt-widget14__legend">
-					<span class="kt-widget14__bullet kt-bg-success"></span>
-					<span class="kt-widget14__stats">+10% New York</span>
-				</div>
-				<div class="kt-widget14__legend">
-					<span class="kt-widget14__bullet kt-bg-warning"></span>
-					<span class="kt-widget14__stats">-7% London</span>
-				</div>
-				<div class="kt-widget14__legend">
-					<span class="kt-widget14__bullet kt-bg-brand"></span>
-					<span class="kt-widget14__stats">+20% California</span>
-				</div>
-			</div>		 
+			
 		</div> 	 
 	</div>
-</div> -->
+</div>
 
-<!-- 
-<div style="display: block">
-	<canvas mdbChart
-		[chartType]="chartType"
-		[datasets]="chartDatasets"
-		[labels]="chartLabels"
-		[colors]="chartColors"
-		[options]="chartOptions"
-		[legend]="true"
-		(chartHover)="chartHovered($event)"
-		(chartClick)="chartClicked($event)">
-	</canvas>
-  </div> -->
 
-	  <script src="node_modules/chart.js/src/chart.js"></script>
+
+
+
+
+
+
+<div class="kt-portlet kt-portlet--height-fluid">
+	<div class="kt-widget14">
+		<div class="kt-widget14__header">
+			<h3 class="kt-widget14__title">
+				Statistique            
+			</h3>
+			<span class="kt-widget14__desc">
+				pourcentage des stage de pfe en dehors de tunis par raopprt au global
+			</span>
+		</div>
+		<div class="kt-widget14__content">
+			<div class="kt-widget14__chart">
+
+                    <div  style="height: 700; width: 700px;">
+						<div style="display: block">
+							<canvas baseChart
+								  [datasets]="barChartData"
+								  [labels]="barChartLabels"
+								  [options]="barChartOptions"
+								  [legend]="barChartLegend"
+								  [chartType]="barChartType"></canvas>
+						  </div>
+						
+                    </div>
+			</div>  		 
+			
+		</div> 	 
+	</div>
+</div>
+
+  
+
+
+
+
+
+
+
+
+  <!doctype html>
+<html ng-app="app">
+
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+
+
+</html>
+
+
 
 
 <workshop-footer></workshop-footer>

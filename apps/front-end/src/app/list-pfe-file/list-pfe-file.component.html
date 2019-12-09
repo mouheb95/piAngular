@@ -1,5 +1,5 @@
 <workshop-header> </workshop-header>
-
+<body>
 <div *ngIf="!h" class="kt-container  kt-grid__item kt-grid__item--fluid">
 
 
@@ -105,31 +105,31 @@
                                         <span class="kt-nav__section-text">Export Tools</span>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="#" class="kt-nav__link" id="export_print">
+                                        <a href="/pfefile#" class="kt-nav__link" id="export_print">
                                             <i class="kt-nav__link-icon la la-print"></i>
                                             <span class="kt-nav__link-text">Print</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="#" class="kt-nav__link" id="export_copy">
+                                        <a href="/pfefile#" class="kt-nav__link" id="export_copy">
                                             <i class="kt-nav__link-icon la la-copy"></i>
                                             <span class="kt-nav__link-text">Copy</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="#" class="kt-nav__link" id="export_excel">
+                                        <a href="/pfefile#" class="kt-nav__link" id="export_excel">
                                             <i class="kt-nav__link-icon la la-file-excel-o"></i>
                                             <span class="kt-nav__link-text">Excel</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="#" class="kt-nav__link" id="export_csv">
+                                        <a href="/pfefile#" class="kt-nav__link" id="export_csv">
                                             <i class="kt-nav__link-icon la la-file-text-o"></i>
                                             <span class="kt-nav__link-text">CSV</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="#" class="kt-nav__link" id="export_pdf">
+                                        <a href="/pfefile#" class="kt-nav__link" id="export_pdf">
                                             <i class="kt-nav__link-icon la la-file-pdf-o"></i>
                                             <span class="kt-nav__link-text">PDF</span>
                                         </a>
@@ -145,16 +145,19 @@
                 </a>
                 <a (click)='getPfefileNotTreated()' _ngcontent-fqe-c2=""
 					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/pfefile#">pfe does not reated 
+                </a>
+                <a (click)='getPfeFileArchieve()' _ngcontent-fqe-c2=""
+					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/pfefile#">pfe Archieved 
 				</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="kt-portlet__body">
+            <input type="text" placeholder="Search..." [(ngModel)]="term">
+            <div class="kt-portlet__body" id='content' #content>
 
                 <!--begin: Datatable -->
-                <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_2">
+                <table id="example" class="table table-striped- table-bordered table-hover table-checkable" >
                     
                     <thead>
                         <tr>
@@ -168,12 +171,12 @@
                             <th>note Internship Reporter</th>
                             <th>Verification</th>
                             <th>Current Year</th>
-                            <th>action</th>
+                            <th >action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let a of listPfeFile;">
+                        <tr *ngFor="let a of listPfeFile| filter:term" id="example">
                             <td>{{a.id}}</td>
                             <td> {{a.fonctionality}} </td>
                             <td>{{a.key}}</td>
@@ -185,27 +188,29 @@
                             <td *ngIf="a.verification==1"> <span class="kt-badge  kt-badge--success kt-badge--inline kt-badge--pill">valid</span></td>
                             <td *ngIf="a.verification==2"><span class="kt-badge  kt-badge--danger kt-badge--inline kt-badge--pill">not valid</span></td>
                             <td>{{a.CurrentYear}}</td>
-                            <td nowrap > 
+                            <td nowrap *ngIf="hideArchieve"  > 
                                 
 
-                                    <li  data-dtr-index="10" data-dt-row="32" data-dt-column="10"><span class="dtr-title">Actions</span> <span class="dtr-data">
+                                    <li  data-dtr-index="10" data-dt-row="32" data-dt-column="10"><span class="dtr-title"></span> <span class="dtr-data">
                                             <span class="dropdown" >
                                                 <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
                                                   <i (click)="cancel()" class="la la-ellipsis-h"></i>
                                                 </a>
                                                 <div *ngIf="pipe2" class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#" (click)='valPfeFile(a)'><i class="la la-edit"></i> Validate</a>
-                                                    <a class="dropdown-item" href="#" (click)='getPfeFileByID(a.id)'><i class="la la-leaf"></i> Consult</a>
-                                                    <a class="dropdown-item" href="#" (click)='refusePfeFile(a)'><i class="la la-print"></i> Refuse Pfe </a>
+                                                    <a class="dropdown-item" href="/pfefile#" (click)='valPfeFile(a)'><i class="la la-edit"></i> Validate</a>
+                                                    <a class="dropdown-item" href="/pfefile#" (click)='getPfeFileByID(a.id)'><i class="la la-leaf"></i> Consult</a>
+                                                    <a class="dropdown-item" href="javascript:;" (click)='refusePfeFile(a)'><i class="la la-print"></i> Refuse Pfe </a>
                                                 </div>
                                             </span>
                                             <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
                                               <i class="la la-edit"></i>
                                             </a></span></li>
                                         
-                                <button (click)='valPfeFile(a)'> validate</button>
-                                <button (click)='getPfeFileByID(a.id)'> Consult</button>
-                                <button (click)='hide()'> hide</button>
+                                <!-- <button (click)='valPfeFile(a)'> validate</button>
+                                <button (click)='getPfeFileByID(a.id)'> Consult</button> -->
+                                
+                                <button (click)="generatePdf()">Open PDF</button>
+
                                 <ul>
                                          
                                         <a [routerLink]="['/pfeFile',a.id]"  (click)='hide()'> Details </a>
@@ -214,6 +219,87 @@
                                         </ul>
 
                                 
+                                </td>
+
+                        </tr>
+
+                        <tr *ngIf='!baliz'  id="example">
+                            <td>53</td>
+                            <td> stage </td>
+                            <td>mise en match</td>
+                            <td>PFE Test</td>
+                            <td>test25</td>
+                            <td>test26</td>
+                            <td> hh</td>
+                            <td > <span class="kt-badge  kt-badge--primary kt-badge--inline kt-badge--pill">Waiting</span></td>
+                            
+                            <td>2018</td>
+                            <td nowrap > 
+                            
+                                </td>
+
+                        </tr>
+                        <tr *ngIf='!baliz'  id="example">
+                            <td>53</td>
+                            <td> stage </td>
+                            <td>mise en match</td>
+                            <td>PFE Test</td>
+                            <td>test25</td>
+                            <td>test26</td>
+                            <td> hh</td>
+                            <td > <span class="kt-badge  kt-badge--primary kt-badge--inline kt-badge--pill">Waiting</span></td>
+                            
+                            <td>2018</td>
+                            <td nowrap > 
+                            
+                                </td>
+
+                        </tr>
+                        <tr *ngIf='!baliz'  id="example">
+                            <td>53</td>
+                            <td> stage </td>
+                            <td>mise en match</td>
+                            <td>PFE Test</td>
+                            <td>test25</td>
+                            <td>test26</td>
+                            <td> hh</td>
+                            <td > <span class="kt-badge  kt-badge--primary kt-badge--inline kt-badge--pill">Waiting</span></td>
+                            
+                            <td>2018</td>
+                            <td nowrap > 
+                            
+                                </td>
+
+                        </tr>
+                        <tr *ngIf='!baliz'  id="example">
+                            <td>53</td>
+                            <td> stage </td>
+                            <td>mise en match</td>
+                            <td>PFE Test</td>
+                            <td>test25</td>
+                            <td>test26</td>
+                            <td> hh</td>
+                            <td > <span class="kt-badge  kt-badge--primary kt-badge--inline kt-badge--pill">Waiting</span></td>
+                            
+                            <td>2018</td>
+                            <td nowrap > 
+                            
+                                </td>
+
+                        </tr>
+                        <tr *ngIf='!baliz'  id="example">
+                            <td>53</td>
+                            <td> stage </td>
+                            <td>mise en match</td>
+                            <td>PFE Test</td>
+                            <td>test25</td>
+                            <td>test26</td>
+                            <td> hh</td>
+                            <td > <span class="kt-badge  kt-badge--primary kt-badge--inline kt-badge--pill">Waiting</span></td>
+                            
+                            <td>2018</td>
+                            <td nowrap > 
+                            
                                 </td>
 
                         </tr>
@@ -282,6 +368,21 @@
 
 <a class="signup__link" routerLink="/pfeFile"  routerLink="/pfeFile/{{x.id}}">   pfeFile</a>
 </div> -->
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
 
 
 

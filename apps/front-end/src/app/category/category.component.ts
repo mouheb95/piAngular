@@ -20,10 +20,10 @@ export class CategoryComponent implements OnInit {
   listCat = [] ;
 
   getCategory(){
-    this.CategoryService.findall().subscribe(Category => {
-      console.log(Category);
-      this.listCat = Category;
-   })
+  //   this.CategoryService.findall().subscribe(Category => {
+  //     console.log(Category);
+  //     this.listCat = Category;
+  //  })
   }
 
   createCat(category){
@@ -31,15 +31,15 @@ export class CategoryComponent implements OnInit {
       name : category
     }
       
-    this.CategoryService.createCat(c).subscribe(res => {
-      console.log(res)
-    });
+    // this.CategoryService.createCat(c).subscribe(res => {
+    //   console.log(res)
+    // });
   }
 
   deleteCat(id) {
-    this.CategoryService.deleteCat(id).subscribe(res => {
-      console.log(res)
-    })
+    // this.CategoryService.deleteCat(id).subscribe(res => {
+    //   console.log(res)
+    // })
   }
 
 }

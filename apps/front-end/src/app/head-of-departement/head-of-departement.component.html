@@ -1,29 +1,33 @@
 <workshop-header> </workshop-header>
-
+<a (click)='getPfeFile()' _ngcontent-fqe-c2=""
+class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement/pfefile#"> Pfe Files
+</a>
 
 <div class="kt-portlet__body" >
         <a (click)='getPfeFileWithoutFramer()' _ngcontent-fqe-c2=""
-        class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement#"> Pfe Files without framer 
+        class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement/pfefile#"> Pfe Files without framer 
     </a>
 
     <a (click)='getPfeFileWithoutValidator()' _ngcontent-fqe-c2=""
-        class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement#"> Pfe Files without validator 
+        class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement/pfefile#"> Pfe Files without validator 
     </a>
 
     <a (click)='getPfeFileWithoutReporter()' _ngcontent-fqe-c2=""
-    class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement#"> Pfe Files without Reporter 
+    class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement/pfefile#"> Pfe Files without Reporter 
     </a>
 
     <a (click)='getPfeFileWithoutNoteF()' _ngcontent-fqe-c2=""
-    class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement#"> Pfe Files without Note Framer 
+    class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement/pfefile#"> Pfe Files without Note Framer 
     </a>
 
     <a (click)='getPfeFileWithoutNoteR()' _ngcontent-fqe-c2=""
-    class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement#"> Pfe Files without Note Reporter 
+    class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofdepartement/pfefile#"> Pfe Files without Note Reporter 
     </a>
+   
+ 
 
         <!--begin: Datatable -->
-        <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_2">
+        <table class="table table-striped- table-bordered table-hover table-checkable" >
             
             <thead>
                 <tr>
@@ -59,7 +63,7 @@
                         <button *ngIf="btnaffecterV" (click)='affecterPfe1(a)' type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">Affecter Validator</button>
                         <button *ngIf="btnaffecterF" (click)='affecterPfe2(a)' type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">Affecter Framer</button>
                         <button *ngIf="btnaffecterR" (click)='affecterPfe3(a)' type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">Affecter Reporter</button>
-          
+                        <button  (click)='getPfeFileHistory(a.id)' type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">show pfe fil history</button>
                    
                     
 
@@ -234,5 +238,41 @@
         <div class="swal2-footer" style="display: none;"></div>
     </div>
 </div>
+
+
+
+
+
+<!-- model of pfe file history -->
+<div *ngIf="showHistory" id="exampleModalLive" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 15px;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLiveLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div  *ngFor="let t of list_pfefile_history;let i = index" class="modal-body">
+              <p> type of operation :</p>
+             {{i}} {{t.typeOfOperation}} 
+              <p> event :</p>
+              {{i}} {{t.event}} 
+              <p> pfe title :</p>
+              {{i}} {{t.pfeFile.title}} 
+              <p> date :</p>
+              {{i}} {{t.date | date}} 
+            </div>
+            <div class="modal-footer">
+              <button (click)="pfeHistoryOut()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- end model of history -->
+
+
+      
 
     <workshop-footer></workshop-footer>

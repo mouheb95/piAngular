@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PfeFile } from './pfe-file.service';
+import { PfeFile, Teacher } from './pfe-file.service';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,11 @@ export class PfeFileCancellingService {
     return this.http.post(this.url+'/validatePfeCancelling?idpfefileCancelling='+pfeFileCancellingRequest.id, pfeFileCancellingRequest, this.httpOptions);
    }
 
+   findallallPfeFileArchieve(): Observable<any> {
+    //let profile = student.profile;
+    return this.http.get<PfeFilePfeFileArchieve[]>(this.url+'/allPfeFileArchieved');
+   } 
+
 }
 
 export interface PfeFileCancellingRequest {
@@ -38,5 +43,15 @@ export interface PfeFileCancellingRequest {
   cause: String;  
   status: number; 
   pfeFile: PfeFile; 
+
+}
+
+
+export interface PfeFilePfeFileArchieve {
+  constructor(id: string, description: string, key: string, internshipReporter: Teacher)
+  id: String;  
+  description: String;  
+  key: String; 
+  internshipReporter: Teacher; 
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { StudentsService } from '@workshop/core-data';
 import { student } from 'libs/core-data/src/lib/internshipDirector/students.service';
 
@@ -107,10 +107,18 @@ search() {
   })
 }
 
+
+
+
+
+
   ngOnInit() {
     this.getstudents();
     this.reset();
     this.getstudentsWithoutPfefile();
+
+
+
   }
 
 }
