@@ -1,0 +1,254 @@
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+                <span class="kt-portlet__head-icon"><i class="kt-font-brand flaticon-doc"></i></span>
+            <h3 class="kt-portlet__head-title">
+                Work
+            </h3>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <ul class="nav nav-pills nav-fill" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#kt_tabs_5_1">Raporter</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#kt_tabs_5_2">Framer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#kt_tabs_5_3">Validator</a>
+            </li>
+        </ul>                    
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="kt_tabs_5_1" role="tabpanel">
+                <div class="row ">
+                    <div class="col-xl-3" *ngFor="let a of listFile;">
+                        <!--Begin::Portlet-->
+                        <div class="kt-portlet kt-portlet--height-fluid">
+                            <div class="kt-portlet__head kt-portlet__head--noborder">
+                                <div class="kt-portlet__head-label">
+                                    <h3 class="kt-portlet__head-title">
+                
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="kt-portlet__body">
+                                <!--begin::Widget -->
+                                <div class="kt-widget kt-widget--user-profile-2">
+                                    <div class="kt-widget__head">
+                                        <div class="kt-widget__info">
+                                            <a href="#" class="kt-widget__titel kt-hidden-">
+                                                <h2 class="kt-font-info">{{a.title}}</h2>                                  
+                                            </a>
+                                            <a href="#" class="kt-widget__username kt-hidden">
+                                                Luca Doncic                                               
+                                            </a>
+                                        </div>
+                                    </div>
+                
+                                    <div class="kt-widget__body">
+                                        <div class="kt-widget__section">
+                                            <h3 class="kt-font-dark">{{a.description}}</h3>
+                                        </div>                                        
+                
+                                        <div class="kt-widget__item">
+                                            
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Studint: </span>
+                                                <span class="kt-widget__data">{{a.student.name}} {{a.student.lastname}}</span>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Problematic: </span>
+                                                <span class="kt-widget__data">{{a.problematic}}</span>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Fonctionality: </span>
+                                                <span class="kt-widget__data">{{a.fonctionality}}</span>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Category:</span>
+                                                <span class="kt-widget__data">{{a.category.name}}</span>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                    <span class="kt-widget__label">Note Framer:</span>
+                                                    <span *ngIf="a.note_F!=0" class="kt-widget__data" class="kt-font-danger">{{a.note_F}}</span>
+                                                    <span *ngIf="a.note_F==0" class="kt-widget__data" class="kt-font-danger">not yet graded</span>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                    <span class="kt-widget__label">Note Raporter:</span>
+                                                    <span *ngIf="a.note_IR!=0"class="kt-widget__data" class="kt-font-danger">{{a.note_IR}}</span>
+                                                    <span *ngIf="a.note_IR==0"class="kt-widget__data" class="kt-font-danger">not yet graded</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="kt-widget__footer">
+                                            <input [(ngModel)]="note[a.id]" name="noteF" type="text"><button (click)="giveNoteReporter(a,note[a.id])" type="button" class="btn btn-label-warning btn-lg btn-upper">Grade me</button>
+                                    </div>
+                                </div>         
+                                <!--end::Widget -->
+                            </div>
+                        </div>
+                        <!--End::Portlet--> 
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="tab-pane" id="kt_tabs_5_2" role="tabpanel">
+                    <!--Begin-->
+                    <div class="row ">
+                            <div class="col-xl-3" *ngFor="let b of listFile2;">
+                                <div class="kt-portlet kt-portlet--height-fluid">
+                                    <div class="kt-portlet__head kt-portlet__head--noborder">
+                                        <div class="kt-portlet__head-label">
+                                            <h3 class="kt-portlet__head-title">
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="kt-portlet__body">
+                                        <!--begin::Widget -->
+                                        <div class="kt-widget kt-widget--user-profile-2">
+                                            <div class="kt-widget__head">
+                                                <div class="kt-widget__info">
+                                                    <a href="#" class="kt-widget__titel kt-hidden-">
+                                                        <h2 class="kt-font-info">{{b.title}}</h2>                                  
+                                                    </a>
+                                                    <a href="#" class="kt-widget__username kt-hidden">
+                                                        Luca Doncic                                               
+                                                    </a>
+                                                </div>
+                                            </div>
+                        
+                                            <div class="kt-widget__body">
+                                                <div class="kt-widget__section">
+                                                    <h3 class="kt-font-dark">{{b.description}}</h3>
+                                                </div>                                        
+                        
+                                                <div class="kt-widget__item">
+                                                    
+                                                    <div class="kt-widget__contact">
+                                                        <span class="kt-widget__label">Studint: </span>
+                                                        <span class="kt-widget__data">{{b.student.name}} {{b.student.lastname}}</span>
+                                                    </div>
+                                                    <div class="kt-widget__contact">
+                                                        <span class="kt-widget__label">Problematic: </span>
+                                                        <span class="kt-widget__data">{{b.problematic}}</span>
+                                                    </div>
+                                                    <div class="kt-widget__contact">
+                                                        <span class="kt-widget__label">Fonctionality: </span>
+                                                        <span class="kt-widget__data">{{b.fonctionality}}</span>
+                                                    </div>
+                                                    <div class="kt-widget__contact">
+                                                        <span class="kt-widget__label">Category:</span>
+                                                        <span class="kt-widget__data">{{b.category.name}}</span>
+                                                    </div>
+                                                    <div class="kt-widget__contact">
+                                                            <span class="kt-widget__label">Note Framer:</span>
+                                                            <span *ngIf="b.note_F!=0" class="kt-widget__data" class="kt-font-danger">{{b.note_F}}</span>
+                                                            <span *ngIf="b.note_F==0" class="kt-widget__data" class="kt-font-danger">not yet graded</span>
+                                                    </div>
+                                                    <div class="kt-widget__contact">
+                                                            <span class="kt-widget__label">Note Raporter:</span>
+                                                            <span *ngIf="b.note_IR!=0"class="kt-widget__data" class="kt-font-danger">{{b.note_IR}}</span>
+                                                            <span *ngIf="b.note_IR==0"class="kt-widget__data" class="kt-font-danger">not yet graded</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="kt-widget__footer">                                                
+                                                <input [(ngModel)]="note[b.id]" name="noteFramer" type="text"><button (click)="giveNoteFramer(b,note[b.id])" type="button" class="btn btn-label-warning btn-lg btn-upper">Grade me</button>
+                                            </div>
+                                        </div>         
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End--> 
+            </div>
+
+
+
+
+
+
+
+
+            <div class="tab-pane" id="kt_tabs_5_3" role="tabpanel">
+                <!--Begin-->
+                <div class="row ">
+                        <div class="col-xl-3" *ngFor="let b of listFile3;">
+                            <div class="kt-portlet kt-portlet--height-fluid" (click)="jcp(b)">
+                                <div class="kt-portlet__head kt-portlet__head--noborder">
+                                    <div class="kt-portlet__head-label">
+                                        <h3 class="kt-portlet__head-title">
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="kt-portlet__body">
+                                    <!--begin::Widget -->
+                                    <div class="kt-widget kt-widget--user-profile-2">
+                                        <div class="kt-widget__head">
+                                            <div class="kt-widget__info">
+                                                <a href="#" class="kt-widget__titel kt-hidden-">
+                                                    <h2 class="kt-font-info">{{b.title}}</h2>                                  
+                                                </a>
+                                                <a href="#" class="kt-widget__username kt-hidden">
+                                                    Luca Doncic                                               
+                                                </a>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="kt-widget__body">
+                                            <div class="kt-widget__section">
+                                                <h3 class="kt-font-dark">{{b.description}}</h3>
+                                            </div>                                        
+                    
+                                            <div class="kt-widget__item">
+                                                
+                                                <div class="kt-widget__contact">
+                                                    <span class="kt-widget__label">Studint: </span>
+                                                    <span class="kt-widget__data">{{b.student.name}} {{b.student.lastname}}</span>
+                                                </div>
+                                                <div class="kt-widget__contact">
+                                                    <span class="kt-widget__label">Problematic: </span>
+                                                    <span class="kt-widget__data">{{b.problematic}}</span>
+                                                </div>
+                                                <div class="kt-widget__contact">
+                                                    <span class="kt-widget__label">Fonctionality: </span>
+                                                    <span class="kt-widget__data">{{b.fonctionality}}</span>
+                                                </div>
+                                                <div class="kt-widget__contact">
+                                                    <span class="kt-widget__label">Category:</span>
+                                                    <span class="kt-widget__data">{{b.category.name}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- routerLink="/details"  -->
+                                        <div class="kt-widget__footer" >
+                                             <div *ngIf="valid==false" name="1">
+                                                <button (click)="valider(b)" type="button" class="btn btn-label-success btn-lg btn-upper">Valid</button>
+                                                <input [(ngModel)]="b.modif" name="b.id" type="text"><button (click)="setModif(b,b.modif)" type="button" class="btn btn-danger btn-elevate btn-pill btn-elevate-air">set a modification</button>
+                                            </div>
+                                            <div *ngIf="valid==true" name="2">
+                                                <h2 class="kt-font-success">PFE is valid</h2>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div><button [routerLink]="['/details',b.id]">take me plz</button></div>        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End--> 
+            </div>
+        </div>      
+    </div>
+</div>
