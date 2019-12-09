@@ -17,15 +17,15 @@ export class PfeFileComponent implements OnInit {
   list_company;// Company[];
   company;
   condition_on_select_company = false;
-  show_pfefile = true 
+  show_pfefile = true
   intersheepDetails ;
 
   constructor(
-    private pfefileService: PfefileService, 
-    private studentService: StudentService, 
+    private pfefileService: PfefileService,
+    private studentService: StudentService,
     private pfeFileHistoryService: PfefileHistoryService
     ) { }
-  
+
   ngOnInit() {
     this.resetIntersheepDetails();
     this.resetPfeFile();
@@ -55,6 +55,14 @@ export class PfeFileComponent implements OnInit {
     return this.currentPfeFile = emptyPFeFile;
   }
 
+  hasPfe(){
+    this.studentService.hasPfe(this.currentUser).subscribe(res => {
+      this.currentPfeFile = res
+      this.old_pfefile = res;
+    });
+    console.log(this.currentPfeFile);
+  }
+
   resetIntersheepDetails(){
     const x = {
       "date_debut": "",
@@ -71,12 +79,12 @@ export class PfeFileComponent implements OnInit {
     this.createPfeFile(this.currentPfeFile);
     } else {
       this.updatePfeFile(this.currentPfeFile);
-    } 
+    }
     this.show_update_pfe = !this.show_update_pfe;
   }
 
   createPfeFile(pfeFile: PfeFile){
-      
+
     this.pfefileService.createPfeFile(this.currentPfeFile).subscribe(res => {
       this.currentPfeFile = res;
       this.condition_on_select_company = true;
@@ -96,7 +104,7 @@ export class PfeFileComponent implements OnInit {
     })
   }
 
-  onChangeObj(newObj) {  
+  onChangeObj(newObj) {
     this.company = newObj;
   }
 
@@ -127,17 +135,12 @@ export class PfeFileComponent implements OnInit {
   hideNotelPfe(){
     this.show_note_pfe = false;
   }
-  
+
   hideUpdatePfe(){
     this.show_update_pfe = !this.show_update_pfe;
   }
-  
-  hasPfe(){
-    this.studentService.hasPfe(this.currentUser).subscribe(res => {
-      this.currentPfeFile = res
-      this.old_pfefile = res;
-  });
-  }
+
+
 
   findAllCompany(){
     this.pfefileService.findCompanyAll().subscribe(res => {
@@ -148,7 +151,7 @@ export class PfeFileComponent implements OnInit {
   showInterSheepDetails(id){
     this.studentService.hasIntersheepAgreement(id).subscribe( res =>{
       this.intersheepDetails = res ;
-      
+
     })
   }
 
