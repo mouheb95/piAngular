@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   currentUserSubscription;
-  currentUser;
-  show_menu_bar = false;
+  currentUser= JSON.parse(localStorage.getItem('currentUser')).id;
+    show_menu_bar = false;
 
   links = [
     { path: '/', icon: 'home', title: 'Home'},
