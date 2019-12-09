@@ -17,10 +17,10 @@
   </style>
 </head>
 <body>
-<div id="content" class="mouheb"></div>
+<div id="content" ></div>
 <div>
-  <span id="status" class="mouheb">Connecting...</span>
-  <input type="text" id="input"  />
+  <span id="status">Connecting...</span>
+  <input type="text" id="input"  (keypress)="keyPress($event)"  />
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </body>
