@@ -134,125 +134,21 @@
                 </div>                
             </div>        
         
-        <div class="kt-mycart__body kt-scroll" data-scroll="true" data-height="245" data-mobile-height="200">
+        <div *ngFor="let notif of listNotif" class="kt-mycart__body kt-scroll" data-scroll="true" data-height="245" data-mobile-height="200">
             <div class="kt-mycart__item">
-                <div class="kt-mycart__container">
+                <div *ngIf="notif.seen==0" class="kt-mycart__container">
                     <div class="kt-mycart__info">
-                        <a href="#" class="kt-mycart__title">
-                            Samsung                      
-                        </a>
-                        <span class="kt-mycart__desc">
-                            Profile info, Timeline etc
+                        <span class="kt-mycart__title">
+                          subject : {{notif.subject}}                      
                         </span>
-    
-                        <div class="kt-mycart__action">
-                            <span class="kt-mycart__price">$ 450</span>
-                            <span class="kt-mycart__text">for</span>
-                            <span class="kt-mycart__quantity">7</span>
-                            <a href="#" class="btn btn-label-success btn-icon"></a>
-                            <a href="#" class="btn btn-label-success btn-icon"></a>
-                        </div>    
-                    </div>
-    
-                </div>     			 
-            </div>
-    
-            <div class="kt-mycart__item">
-                <div class="kt-mycart__container">
-                    <div class="kt-mycart__info">
-                        <a href="#" class="kt-mycart__title">
-                            Panasonic                       
-                        </a>
-    
                         <span class="kt-mycart__desc">
-                            For PHoto & Others
-                        </span>
-    
-                        <div class="kt-mycart__action">
-                            <span class="kt-mycart__price">$ 329</span>
-                            <span class="kt-mycart__text">for</span>
-                            <span class="kt-mycart__quantity">1</span>
-                            <a href="#" class="btn btn-label-success btn-icon"></a>
-                            <a href="#" class="btn btn-label-success btn-icon"></a>                          
-                        </div>    
+                           Message : {{notif.message}}
+                        </span> 
+                        <button  (click)="seen(notif.id)"> seen</button>
                     </div>
-                    
-                    <a href="#" class="kt-mycart__pic">
-                        <img src="/assets/themes/assets/media/products/product13.jpg" title="">
-                    </a>     
                 </div>     			 
-            </div>    
-            
-            <div class="kt-mycart__item">
-                <div class="kt-mycart__container">
-                    <div class="kt-mycart__info">
-                        <a href="#" class="kt-mycart__title">
-                            Fujifilm                       
-                        </a>
-                        <span class="kt-mycart__desc">
-                            Profile info, Timeline etc
-                        </span>
-    
-                        <div class="kt-mycart__action">
-                            <span class="kt-mycart__price">$ 520</span>
-                            <span class="kt-mycart__text">for</span>
-                            <span class="kt-mycart__quantity">6</span>
-                            <a href="#" class="btn btn-label-success btn-icon"></a>
-                            <a href="#" class="btn btn-label-success btn-icon"></a>
-                        </div>    
-                    </div>
-                    
-                    <a href="#" class="kt-mycart__pic">
-                        <img src="/assets/themes/assets/media/products/product16.jpg" title="">
-                    </a>    
-                </div>     			 
-            </div>
-    
-            <div class="kt-mycart__item">
-                <div class="kt-mycart__container">
-                    <div class="kt-mycart__info">
-                        <a href="#" class="kt-mycart__title">
-                            Candy Machine                      
-                        </a>
-    
-                        <span class="kt-mycart__desc">
-                            For PHoto & Others
-                        </span>
-    
-                        <div class="kt-mycart__action">
-                            <span class="kt-mycart__price">$ 784</span>
-                            <span class="kt-mycart__text">for</span>
-                            <span class="kt-mycart__quantity">4</span>
-                            <a href="#" class="btn btn-label-success btn-icon"></a>
-                            <a href="#" class="btn btn-label-success btn-icon"></a>                       
-                        </div>    
-                    </div>
-                    
-                    <a href="#" class="kt-mycart__pic">
-                        <img src="/assets/themes/assets/media/products/product15.jpg" title="" alt="">
-                    </a>     
-                </div>     			 
-            </div>          
-        </div>
-    
-        <div class="kt-mycart__footer">
-            <div class="kt-mycart__section">
-                <div class="kt-mycart__subtitel">
-                    <span>Sub Total</span>
-                    <span>Taxes</span>
-                    <span>Total</span>                    
-                </div>  
-                        
-                <div class="kt-mycart__prices">
-                    <span>$ 840.00</span> 
-                    <span>$ 72.00</span> 
-                    <span class="kt-font-brand">$ 912.00</span>
-                </div>  
-            </div>
-            <div class="kt-mycart__button kt-align-right">
-                <button type="button" class="btn btn-primary btn-sm">Place Order</button>
-            </div>
-        </div>
+            </div>         
+        </div>    
     </div>
     <!-- end:: Mycart -->     
        </form>
@@ -299,13 +195,13 @@
     <!--end: Head -->
     
     <div class="tab-content" *ngFor="let a of listPfeFileCancelling;">
-        <div class="tab-pane active show" id="topbar_notifications_notifications" role="tabpanel">
+        <div *ngIf="currentUser.id==63 || currentUser.id==58" class="tab-pane active show" id="topbar_notifications_notifications" role="tabpanel">
             <div class="kt-notification kt-margin-t-10 kt-margin-b-10 kt-scroll" data-scroll="true" data-height="300" data-mobile-height="200">
                 <a href="#" class="kt-notification__item">
                     <div class="kt-notification__item-icon">
                         <i class="flaticon2-line-chart kt-font-success"></i>
                     </div>
-                    <div class="kt-notification__item-details">
+                    <div  class="kt-notification__item-details">
                         <div class="kt-notification__item-title">
                             there pfe File cancelling request from {{a.pfeFile.email}}
                         </div>
@@ -333,6 +229,7 @@
             </div>
         </div>
     </div>
+    
                 </form>
             </div>
         </div>

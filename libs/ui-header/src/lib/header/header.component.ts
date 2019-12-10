@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
     { path: '/InternshipDirector/student', icon: 'face', title: 'Student'},
     { path: '/InternshipDirector/pfefile', icon: 'work', title: 'Pfefile'},
     { path: '/InternshipDirector/dashboard', icon: 'work', title: 'Dashboard'},
+    { path: '/InternshipDirector/reclamation', icon: 'work', title: 'Reclamation'},
 
     ]
 
@@ -45,7 +46,14 @@ export class HeaderComponent implements OnInit {
     }
      }
 
+     ngOnInit() {
+      this.getPfeFileCancelling();
+      this.getNotifRec();
+    }
+
   listPfeFileCancelling = [] ;
+  listNotif ;
+
 
   getPfeFileCancelling(){
     this.pfeFileCancellingService.findallallPfeFileCancelling().subscribe(pfeFileCancelling => {
@@ -76,11 +84,19 @@ export class HeaderComponent implements OnInit {
    })
   }
 
-  ngOnInit() {
-    this.getPfeFileCancelling();
-    console.log("lennna"+this.currentUser)
-
+  getNotifRec(){
+    this.studentService.getNotif(this.currentUser.id).subscribe(rec => {
+      console.log(rec);
+      this.listNotif = rec;
+   })
   }
+
+  seen(notif){
+    this.studentService.seen(notif).subscribe();
+  
+  }
+
+  
 
 
 logout() {

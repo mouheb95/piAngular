@@ -26,6 +26,7 @@ import { ListStudentModule } from './list-student/list-student.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { APP_BASE_HREF } from '@angular/common';
 import { UiLoginModule } from '@workshop/ui-login';
+import { ReclamationModule } from './reclamation/reclamation.module';
 import { ChartsModule } from 'ng2-charts';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OptionModule } from './head-of-departement/option/option.module';
@@ -76,6 +77,7 @@ import { TeacherModule } from './head-of-departement/teacher/teacher.module';
     TeacherModule,
     CategoryModule,
     HomeModule,
+    ReclamationModule,
     AppRoutingModule
     
     

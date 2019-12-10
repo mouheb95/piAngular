@@ -8,7 +8,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <link rel="stylesheet" href="/assets/themes/1.css">        <!--end::Fonts -->
+  <link rel="stylesheet" href="/assets/themes/1.css">      
+  
+
+
+
+
+
+   <!--begin::Page Custom Styles(used by login page) -->
+   <link href="/assets/themes/metronic/theme/default/demo2/dist/assets/css/pages/login/login-2.css" rel="stylesheet" type="text/css" />
+   <!--end:: login Page Custom Styles -->
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  <!--end::Fonts -->
 
   <link href="/assets/themes/metronic/theme/default/demo2/dist/assets/css/pages/wizard/wizard-1.css" rel="stylesheet" type="text/css" />
         
@@ -195,7 +219,57 @@
 <script src='https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js' type="text/javascript"></script>
 <script src='https://cdn.datatables.net/buttons/1.6.1/js/buttons.colVis.min.js' type="text/javascript"></script>
 
-                 
+
+
+
+            <script>
+    function badWordCatch(){
+
+        var wordInput = document.getElementById("wordInput").value;
+
+        // split the words by spaces (" ")
+        var arr = wordInput.split(" ");
+        // bad words to look for
+        var badWords = ["fuck", "hell", "dick","ass","asshole" , "shit","puta","putain","5ra","motherfucker","poop","bitch"];
+         var index , totalWordAmount = 0, totalWordsFoundList = '';
+         for(index=0;index<arr.length; ++index){
+         if(jQuery.inArray( arr[index], badWords ) > -1){
+           totalWordAmount = totalWordAmount + 1;
+           totalWordsFoundList = totalWordsFoundList+' '+ arr[index]; 
+          // alert(arr[index])
+         }
+         //alert(totalWordsFoundList)
+         }
+         //alert(totalWordsFoundList)
+         document.getElementById("wordsFound").innerHTML = totalWordsFoundList;
+         document.getElementById("wordAmount").innerHTML = totalWordAmount;
+          
+
+        //find bad words from the input
+        //output on the dom "if bad words were found" 
+        //output on the dom how many bad words were found
+    }
+         
+         </script> 
+         
+         
+
+<!--begin::Page Scripts(used by login page) -->
+<script src="/assets/themes/metronic/theme/default/demo2/dist/assets/js/pages/custom/login/login-general.js" type="text/javascript"></script>
+<!--end:: login Page Scripts -->
+
+
+
+
+
+
+
+
+
+
+
+
+         
 </html>
 
 

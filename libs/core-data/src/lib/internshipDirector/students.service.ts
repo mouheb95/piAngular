@@ -79,11 +79,33 @@ export class StudentsService {
     
    } 
 
+    sendReclamation(a,notif): Observable<any> {
+
+    return this.http.post(this.url+'/addRec?idStudent='+a,notif, this.httpOptions);
+   }
+
+
+   getNotif(ok) {
+    return this.http.get(this.url+'/getNotif?idDirector='+ok); 
+   }
+
+   seen(ok) {
+    return this.http.post(this.url+'/seen?idNotif='+ok, this.httpOptions); 
+   }
 }
 export interface student {
   constructor(id: string, name: string, lastname: string )
   id: String;  
   name: String;  
   lastname: String;  
+
+}
+
+
+export interface Notification {
+  constructor(id: string, subject: string, message: string )
+  id: String;  
+  subject: String;  
+  message: String;  
 
 }

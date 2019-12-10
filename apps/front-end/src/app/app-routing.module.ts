@@ -11,6 +11,7 @@ import { HomeComponent } from 'apps/front-end/src/app/home/home.component';
 import { CategoryComponent } from 'apps/front-end/src/app/head-of-departement/category/category.component';
 import { OptionComponent } from 'apps/front-end/src/app/head-of-departement/option/option.component';
 import { TeacherComponent } from 'apps/front-end/src/app/head-of-departement/teacher/teacher.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
 
 
 
@@ -20,6 +21,8 @@ const routes: Routes = [
     { path: 'InternshipDirector/student', component: ListStudentComponent },
     { path: 'InternshipDirector/pfefile', component: ListPfeFileComponent},
     { path: 'InternshipDirector/dashboard', component: DashboardComponent},
+    { path: 'InternshipDirector/reclamation', component: ReclamationComponent },
+
     { path: 'login', component: LoginComponent },
     // { path: 'signUp', component: SignUpComponent },
     { path: 'headofdepartement/pfefile', component: HeadOfDepartementComponent },

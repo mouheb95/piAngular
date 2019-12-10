@@ -26,6 +26,8 @@ export class PfeFileComponent implements OnInit {
   @Input() s: PfeFile;
   listTeacher = [] ;
   badWords = ['fuck', 'shit', 'hell', 'ass','asshole', 'merde', 'dumn', 'putain','stage'];
+  // var Filter = require('bad-words');
+  // filter = new Filter();
   constructor( private pfeFileService : PfeFileService, private activatedroute : ActivatedRoute,
     private studentService : StudentsService) { }
 
@@ -39,7 +41,7 @@ export class PfeFileComponent implements OnInit {
       this.activatedroute.paramMap.subscribe (result => this.id=result.get('id'));
       this.getPfeFileByID(this.id);
       this.getAllTeacher();
-      console.log("pfeeeeeeeeeeee hhh"+this.pfeFile.id)
+      //console.log(filter.clean("don't be asshole"));
   
   
     }
