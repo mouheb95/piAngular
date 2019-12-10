@@ -1,0 +1,51 @@
+<div class="container custom-container">
+  <div class="col-md-12">
+
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.name" class="form-control" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.lastname" class="form-control" placeholder="LastName">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.birthdate" class="form-control" placeholder="BirthDate">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.password" class="form-control" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentProfile.email" class="form-control" placeholder="Email">
+    </div>
+    <div class="form-group">
+
+      <input type="text" [value]="role" (input)="role = $event.target.value" class="form-control" placeholder="role">
+
+    </div>
+
+
+
+
+    <div   *ngIf="role=='student'" class="form-group"    >
+      <button class="btn btn-success btn-lg btn-block"  (click)="addProfile()" >Create Profile</button>
+
+    </div>
+    <div  *ngIf="role=='teacher'" class="form-group"   >
+      <button class="btn btn-success btn-lg btn-block"  (click)="addTeacher()" >Create Profile</button>
+
+    </div>
+    <div   *ngIf="role=='headofdepartement'" class="form-group"   >
+      <button class="btn btn-success btn-lg btn-block"  (click)="ajouthaed()" >Create Profile</button>
+
+    </div>
+    <div  *ngIf="role=='internshipdirector'" class="form-group"   >
+      <button class="btn btn-success btn-lg btn-block"  (click)="addintdirec()" >Create Profile</button>
+
+    </div>
+
+  </div>
+</div>

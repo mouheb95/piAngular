@@ -1,0 +1,31 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px"   class="split right" >
+  <div fxFlex="60">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="Option">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let  currentOptions "> {{ currentOptions.id}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let  currentOptions"> {{ currentOptions.name}} </td>
+        </ng-container>
+
+        <!-- adress Column -->
+        <ng-container matColumnDef="Score">
+          <th mat-header-cell *matHeaderCellDef> Score </th>
+          <td mat-cell *matCellDef="let  currentOptions"> {{ currentOptions.score}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+    </div>
+  </div>
+</div>
+

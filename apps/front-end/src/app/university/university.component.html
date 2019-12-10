@@ -1,0 +1,100 @@
+<div class="split right" class="container custom-container">
+  <div class="col-md-12">
+
+    <div  class="form-group">
+      <input type="text" [(ngModel)]="currentUniversity.id" class="form-control" placeholder="ID">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentUniversity.name" class="form-control" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentUniversity.address" class="form-control" placeholder="Adress">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentUniversity.site" class="form-control" placeholder="Site">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="currentUniversity.owner" class="form-control" placeholder="Owner">
+    </div>
+    {{currentUniversity | json}}
+
+
+
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" (click)="addUniversity()">Create Univeristy</button>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px"   class="split right" >
+  <div fxFlex="60">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="University">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="University Id">
+          <th mat-header-cell *matHeaderCellDef> University Id </th>
+          <td mat-cell *matCellDef="let currentUniversity "> {{currentUniversity.id}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let currentUniversity"> {{currentUniversity.name}} </td>
+        </ng-container>
+
+        <!-- adress Column -->
+        <ng-container matColumnDef="Address">
+          <th mat-header-cell *matHeaderCellDef> Address </th>
+          <td mat-cell *matCellDef="let currentUniversity"> {{currentUniversity.adress}} </td>
+        </ng-container>
+
+        <!-- owner Column -->
+        <ng-container matColumnDef="Owner">
+          <th mat-header-cell *matHeaderCellDef> Owner </th>
+          <td mat-cell *matCellDef="let currentUniversity"> {{currentUniversity.owner}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Site">
+          <th mat-header-cell *matHeaderCellDef> Site </th>
+          <td mat-cell *matCellDef="let currentUniversity"> {{currentUniversity.site}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef>Actions </th>
+        <td mat-cell *matCellDef> <button   mat-button  color="warn"  (click)="deleteUniversity(University.id)">Delete</button></td>
+
+      </ng-container>
+        <ng-container matColumnDef="Edit">
+          <th mat-header-cell *matHeaderCellDef>Edit </th>
+
+          <td mat-cell *matCellDef> <button   mat-button color="primary"  (click)="updateUniversity()">Edit</button></td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

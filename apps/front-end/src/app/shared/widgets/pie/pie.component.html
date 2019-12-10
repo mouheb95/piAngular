@@ -1,0 +1,6 @@
+<app-dashboard (click)="stat()" (event)="receiveEvent($event)"> </app-dashboard>
+<div>
+  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" style="width: 100%; display: block;">
+  </highcharts-chart>
+</div>
+

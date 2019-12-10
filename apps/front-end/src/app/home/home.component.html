@@ -1,92 +1,322 @@
-<div *ngIf="!show_add_option" class="kt-portlet__body">
-  <button (click)="showAddOption(null)">Add option</button>
-  <!--begin: Datatable -->
-  <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_2">
-    <thead>
-    <tr>
-      <th>Order</th>
-      <th>name</th>
-      <th>score</th>
-      <th>departement</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr *ngFor="let option of options; index as i">
-      <td>{{option.id}}</td>
-      <td> {{option.name}} </td>
-      <td>{{option.score}}</td>
-      <td>{{option.departemenet.name}}</td>
-
-        <td>
-        <button (click)='showAddOption(option)'> validate</button>
-        <button (click)='deleteOption(option.id)'> Consult</button>
-        <ul>
-
-        </ul>
-
-
-      </td>
-
-    </tr>
-
-    </tbody>
-
-  </table>
-  <!--end: Datatable -->
+<!--Konnect Slider -->
+<div class='konnect-carousel carousel-image carousel-image-pagination carousel-image-arrows flexslider'>
+  <ul class='slides'>
+    <!--Slider One-->
+    <li class='item'>
+      <div class='container'>
+        <div class='row pos-rel'>
+          <div class='col-sm-12 col-md-6 animate'>
+            <h1 class='big fadeInDownBig animated'>Online and Class Room Training</h1>
+            <p class='normal fadeInUpBig animated delay-point-five-s'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in tincidunt mauris. Etiam arcu enim, laoreet vitae orci vel, rutrum feugiat nibh. Integer feugiat ligula tellus, non pulvinar justo pharetra eu. Nullam vehicula lorem ut diam tincidunt sagittis. Morbi est ligula, posuere in laoreet ac, porta porttitor dui</p>
+            <a class='btn btn-bordered btn-white btn-lg fadeInRightBig animated delay-one-s' href='#'> Show more </a> </div>
+          <div class='col-md-6 animate pos-sta hidden-xs hidden-sm'> <img class="img-responsive img-right fadeInUpBig animated delay-one-point-five-s" alt="iPhone" src="img/slider/student-1.png" /> </div>
+        </div>
+      </div>
+    </li>
+    
+    <!--Slider Two-->
+    <li class='item'>
+      <div class='container'>
+        <div class='row pos-rel'>
+          <div class='col-md-6 animate pos-sta hidden-xs hidden-sm'> <img class="img-responsive img-left fadeInUpBig animated" alt="Circle" src="/assets/img/slider/student-2.png" /> </div>
+          <div class='col-sm-12 col-md-6 animate'>
+            <h2 class='big fadeInUpBig animated delay-point-five-s'>Based on Bootstrap</h2>
+            <p class='normal fadeInDownBig animated delay-one-s'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in tincidunt mauris. Etiam arcu enim, laoreet vitae orci vel, rutrum feugiat nibh. Integer feugiat ligula tellus, non pulvinar justo pharetra eu. Nullam vehicula lorem ut diam tincidunt sagittis. Morbi est ligula, posuere in laoreet ac, porta porttitor dui</p>
+            <a class='btn btn-bordered btn-white btn-lg fadeInLeftBig animated delay-one-point-five-s' href='#'> Show more </a> </div>
+        </div>
+      </div>
+    </li>
+    
+    <!--Slider Three-->
+    <li class='item'>
+      <div class='container'>
+        <div class='row pos-rel'>
+          <div class='col-sm-12 col-md-6 animate'>
+            <h2 class='big fadeInLeftBig animated'>Clean and Flat</h2>
+            <p class='normal fadeInRightBig animated delay-point-five-s'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in tincidunt mauris. Etiam arcu enim, laoreet vitae orci vel, rutrum feugiat nibh. Integer feugiat ligula tellus, non pulvinar justo pharetra eu. Nullam vehicula lorem ut diam tincidunt sagittis. Morbi est ligula, posuere in laoreet ac, porta porttitor dui</p>
+            <a class='btn btn-bordered btn-white btn-lg fadeInUpBig animated delay-one-s' href='#'> Show more </a> </div>
+          <div class='col-md-6 animate pos-sta hidden-xs hidden-sm'> <img class="img-responsive img-right fadeInUpBig animated delay-one-point-five-s" alt="Man" src="/assets/img/slider/student-3.png" /> </div>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
+<!--/. Konnect Slider --> 
 
+<!-- Banner Box -->
+<div class="container banner">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="banner-bar"> <img src="img/icons/classroom.png" alt="icon">
+        <h3><span>Experienced Trainers</span></h3>
+        <p>Curabitur ut est a mi fermentum tristique. Aliquam et ante odio. Donec elementum odio eget ex porta, vel laoreet nisl fermentum.</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="banner-bar"> <img src="img/icons/certificate.png" alt="icon">
+        <h3><span>Certification</span></h3>
+        <p>Curabitur ut est a mi fermentum tristique. Aliquam et ante odio. Donec elementum odio eget ex porta, vel laoreet nisl fermentum.</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="banner-bar"> <img src="img/icons/job-support.png" alt="icon">
+        <h3><span>Job Support</span></h3>
+        <p>Curabitur ut est a mi fermentum tristique. Aliquam et ante odio. Donec elementum odio eget ex porta, vel laoreet nisl fermentum.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Company profile -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12"> 
+        <!--Services Heading-->
+        <h2 class="section-heading">Who We Are?</h2>
+        <div class="template-space"></div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="para-heading">About EduCourse Template.</h2>
+        <p>Curabitur ut est a mi fermentum tristique. Aliquam et ante odio. Donec elementum odio eget ex porta, vel laoreet nisl fermentum. Nam risus purus, hendrerit id placerat sit amet, tempor a urna. Maecenas id quam et dolor facilisis pulvinar.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <a class="service-box-button">View More</a> </div>
+      <div class="col-md-6"> <img src="img/students.jpg" class="img-responsive img-hide-sm" alt="Company"> </div>
+    </div>
+  </div>
+</section>
 
-
-
-
-<!--Begin:: Form Content-->
-<div *ngIf="show_add_option" class="tab-pane active" id="kt_apps_contacts_view_tab_2" role="tabpanel">
-  <form  class="kt-form kt-form--label-right" >
-    <div class="kt-form__body">
-      <div class="kt-section kt-section--first">
-        <div class="kt-section__body">
-          <div class="row">
-            <label class="col-xl-3"></label>
-            <div class="col-lg-9 col-xl-6">
-              <h3 class="kt-section__title kt-section__title-sm">Option:</h3>
-            </div>
+<!-- EduCourse Stats-->
+<section class="light-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="section-heading">EduCourse Stats</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque erat, ultrices cursus nisi at, hendrerit tristique.</p>
+        <div class="template-space"></div>
+      </div>
+      <div class="company-stats">
+        <div class="col-md-3 col-sm-6">
+          <div class="profile-box"> <img src="img/icons/tool.png" alt="icon">
+            <h4><span>500+</span> professionals trained</h4>
           </div>
-
-          <div class="form-group row">
-            <label class="col-xl-3 col-lg-3 col-form-label">option name</label>
-            <div class="col-lg-9 col-xl-6">
-              <input class="form-control" type="text" [(ngModel)]="currentOption.name" name="name">
-            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="profile-box"> <img src="img/icons/expert.png" alt="icon">
+            <h4><span>10+ Years</span> of Experience</h4>
           </div>
-          <div class="form-group row">
-            <label class="col-xl-3 col-lg-3 col-form-label">fonctionality</label>
-            <div class="col-lg-9 col-xl-6">
-              <input class="form-control" type="text" [(ngModel)]="currentOption.score" name="score">
-            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="profile-box"> <img src="img/icons/clients.png" alt="icon">
+            <h4><span>15+</span> Companies Association</h4>
           </div>
-          <div class="form-group row">
-            <label class="col-xl-3 col-lg-3 col-form-label">keyWord</label>
-            <div class="col-lg-9 col-xl-6">
-              <input class="form-control" type="text" [(ngModel)]="currentOption.departement.name" name="departement_name">
-
-            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="profile-box"> <img src="img/icons/success.png" alt="icon">
+            <h4><span>99%</span> Job Guarantee</h4>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+<!--Courses-->
+<section class="template-news">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="section-heading text-dark">Offering Courses</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque erat, ultrices cursus nisi at, hendrerit tristique.</p>
+        <div class="template-space"></div>
+      </div>
+    </div>
+    <div class="row"> 
+      <!--Course One-->
+      <div class="col-sm-4 article-box">
+        <article>
+          <div class="news-post">
+            <div class="img-box"> <span>$150</span><a href="#"><img src="img/news/news1.jpg" alt="it's me Image"></a> </div>
+            <div class="post-content-text">
+              <h4><span>Course One</span></h4>
+              <h4><i class="fa fa-calendar-check-o" aria-hidden="true"></i> 3-4 Weeks</h4>
+              <div class="post-more"><a href="single-course.html">Attend</a> </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      
+      <!--Course Two-->
+      <div class="col-sm-4 article-box">
+        <article>
+          <div class="news-post">
+            <div class="img-box"> <span>$110</span><a href="#"><img src="img/news/news2.jpg" alt="it's me Image"></a> </div>
+            <div class="post-content-text">
+              <h4><span>Course Two</span></h4>
+              <h4><i class="fa fa-calendar-check-o" aria-hidden="true"></i> 3-4 Weeks</h4>
+              <div class="post-more"><a href="single-course.html">Attend</a> </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      
+      <!--Course Three-->
+      <div class="col-sm-4 article-box">
+        <article>
+          <div class="news-post">
+            <div class="img-box"> <span>$90</span><a href="#"><img src="img/news/news3.jpg" alt="it's me Image"></a> </div>
+            <div class="post-content-text">
+              <h4><span>Course Three</span></h4>
+              <h4><i class="fa fa-calendar-check-o" aria-hidden="true"></i> 4-5 Weeks</h4>
+              <div class="post-more"><a href="single-course.html">Attend</a> </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="kt-separator kt-separator--space-lg kt-separator--fit kt-separator--border-solid"></div>
-
-    <div class="kt-form__actions">
-      <div class="row">
-        <div class="col-xl-3"></div>
-        <div class="col-lg-9 col-xl-6">
-          <button class="btn btn-brand btn-bold" (click)="saveChanges(currentOption)" >Save changes</button>
-          <a href="#" class="btn btn-clean btn-bold">Cancel</a>
+<!--Testmonials -->
+<aside class="dark-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-white">
+        <h2 class="section-heading text-white">Student Reviews</h2>
+        <div class="template-space"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" data-wow-delay="0.2s">
+        <div class="carousel slide" data-ride="carousel" id="quote-carousel"> 
+          <!-- Carousel Slides / Quotes -->
+          <div class="carousel-inner text-center"> 
+            <!--Testmonial One active-->
+            <div class="item active">
+              <blockquote>
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2 col-xs-12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
+                    <small>Someone Client</small> </div>
+                </div>
+              </blockquote>
+            </div>
+            
+            <!--Testmonial Two-->
+            <div class="item">
+              <blockquote>
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2 col-xs-12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                    <small>Someone Client</small> </div>
+                </div>
+              </blockquote>
+            </div>
+            
+            <!--Testmonial Three-->
+            <div class="item">
+              <blockquote>
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2 col-xs-12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
+                    <small>Someone Client</small> </div>
+                </div>
+              </blockquote>
+            </div>
+          </div>
+          
+          <!-- Carousel Buttons Next/Prev --> 
+          <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-angle-left"></i></a> <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-angle-right"></i></a> 
+          <!-- Bottom Carousel Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#quote-carousel" data-slide-to="1"></li>
+            <li data-target="#quote-carousel" data-slide-to="2"></li>
+          </ol>
         </div>
       </div>
     </div>
-  </form>
-</div>
-<!--End:: Form Content-->
+  </div>
+</aside>
+
+<!-- Gallery Box-->
+<section class="template-news">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="section-heading text-dark">Gallery</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque erat, ultrices cursus nisi at, hendrerit tristique.</p>
+        <div class="template-space"></div>
+      </div>
+    </div>
+    <div class="row"> 
+      <!--Gallery image-->
+      <div class="col-sm-3 gallery-box"> <a href="#" data-toggle="modal" data-target=".pop-up-1"> <img src="img/gallery/gallery-one.jpg" class="img-responsive center-block" alt=""> </a> </div>
+      <!--Gallery image-->
+      <div class="col-sm-3 gallery-box"> <a href="#" data-toggle="modal" data-target=".pop-up-2"> <img src="img/gallery/gallery-two.jpg" class="img-responsive center-block" alt=""> </a> </div>
+      <!--Gallery image-->
+      <div class="col-sm-3 gallery-box"> <a href="#" data-toggle="modal" data-target=".pop-up-3"> <img src="img/gallery/gallery-three.jpg" class="img-responsive center-block" alt=""> </a> </div>
+      <!--Gallery image-->
+      <div class="col-sm-3 gallery-box"> <a href="#" data-toggle="modal" data-target=".pop-up-4"> <img src="img/gallery/gallery-four.jpg" class="img-responsive center-block" alt=""> </a> </div>
+      <div class="col-md-12 text-center margin-10"> <a class="service-box-button">View More Gallery</a> </div>
+      
+      <!--  Modal content one-->
+      <div class="modal fade pop-up-1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <img src="img/gallery/gallery-one.jpg" class="img-responsive center-block" alt=""> </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal image --> 
+      <!--  Modal content two-->
+      <div class="modal fade pop-up-2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <img src="img/gallery/gallery-two.jpg" class="img-responsive center-block" alt=""> </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal image --> 
+      <!--  Modal content three-->
+      <div class="modal fade pop-up-3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <img src="img/gallery/gallery-three.jpg" class="img-responsive center-block" alt=""> </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal image --> 
+      <!--  Modal content four-->
+      <div class="modal fade pop-up-4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <img src="img/gallery/gallery-four.jpg" class="img-responsive center-block" alt=""> </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal image --> 
+      
+    </div>
+    <!-- /.row --> 
+  </div>
+</section>
+
+<!--Call To Action-->
+<aside class="theme-bg aside-cta">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12 text-white">
+        <h3 class="margin-10 text-white">Do you really like one page templates ?</h3>
+      </div>
+      <div class="col-sm-6 col-xs-12 text-center text-white purchase-button"> <a href="javascript:void(0)" class="template-button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Purchase Now</a> </div>
+    </div>
+  </div>
+</aside>
+<!--/ Call To Action--> 

@@ -12,10 +12,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import {APP_BASE_HREF, CommonModule} from '@angular/common';
+import {APP_BASE_HREF} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
-import { StudentModule } from './student/student.module';
-import { UiSignUpModule } from '@workshop/ui-sign-up';
+import { DepartementComponent } from './departement/departement.component';
+import { ProfileComponent } from './profile/profile.component';
+import { OptionsComponent } from './options/options.component';
+import { ClasseComponent } from './classe/classe.component';
+import { DefaultModule } from './layouts/default/default.module';
+
 
 
 
@@ -27,25 +31,19 @@ import { UiSignUpModule } from '@workshop/ui-sign-up';
   imports: [
     BrowserModule,
     FormsModule,
-    
+    DefaultModule,
+
     HttpClientModule,
     NxModule.forRoot(),
     RouterModule.forRoot([]),
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule,
 
-    StudentModule,
     UiLoginModule,
-    UiSignUpModule,
     UiHeaderModule,
     UiFooterModule,
-    
     AppRoutingModule
 
-  ],
-  exports: [
-    AppComponent
   ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' }],
   bootstrap: [AppComponent]
