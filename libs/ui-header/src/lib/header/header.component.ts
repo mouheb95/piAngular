@@ -8,14 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  showDirector= false;
   currentUserSubscription;
   currentUser= JSON.parse(localStorage.getItem('currentUser')).id;
     show_menu_bar = false;
 
   links = [
     { path: '/', icon: 'home', title: 'Home'},
-    { path: '/student', icon: 'face', title: 'Student'},
-    { path: '/pfefile', icon: 'work', title: 'Pfefile'},
+    { path: '/InternshipDirector/student', icon: 'face', title: 'Student'},
+    { path: '/InternshipDirector/pfefile', icon: 'work', title: 'Pfefile'},
+    { path: '/InternshipDirector/dashboard', icon: 'work', title: 'Dashboard'},
 
     ]
 
@@ -76,6 +78,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.getPfeFileCancelling();
+    console.log("lennna"+this.currentUser)
 
   }
 

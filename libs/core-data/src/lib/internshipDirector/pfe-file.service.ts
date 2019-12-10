@@ -61,6 +61,11 @@ export class PfeFileService {
 
     return this.http.post(this.url+'/refusePFE?idpfefile='+pfefile.id, pfefile, this.httpOptions);
    }
+
+   CompanyByID(a): Observable<any> {
+    return this.http.get(this.url+'/CompanyByID?idCompany='+a);
+    
+   }
 }
 
 export interface PfeFile {

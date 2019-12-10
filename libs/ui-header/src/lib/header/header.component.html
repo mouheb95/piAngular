@@ -588,9 +588,9 @@
             <ul class="kt-menu__nav ">
     
     <!-- start of nav abr -->
-    
-    <li *ngFor="let link of links"  class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true">
-        <a  [routerLink]="link.path" routerLinkActive="active" class="kt-menu__link kt-menu__toggle">
+    <div *ngIf="currentUser.id==57"></div>
+    <li  *ngFor="let link of links"  class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true">
+        <a  *ngIf="currentUser.id==58 || currentUser.id==63" [routerLink]="link.path" routerLinkActive="active" class="kt-menu__link kt-menu__toggle">
             <span class="kt-menu__link-text">{{link.title}}</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
     
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||| u can activate this if u need a menu  |||||||||||||||||||||| -->
@@ -615,11 +615,17 @@
             </div>  -->
     </li>
     
+    <li  *ngFor="let linkh of linksHeadOfDepartement"  class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true">
+            <a  *ngIf="currentUser.id==57 || currentUser.id==61" [routerLink]="linkh.path" routerLinkActive="active" class="kt-menu__link kt-menu__toggle">
+                <span class="kt-menu__link-text">{{linkh.title}}</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+        
+           
+        </li>
 
-<!-- he d of departement li -->
+<!-- he d of departement li  *ngIf="currentUser.id!=57"-->
 
 
-        <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel kt-menu__item--open-dropdown kt-menu__item--hover" data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+        <!-- <li  class="kt-menu__item kt-menu__item--submenu kt-menu__item--rel kt-menu__item--open-dropdown kt-menu__item--hover" data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                 <span class="kt-menu__link-text">Head of departement</span>
                 <i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                 <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
@@ -632,7 +638,7 @@
                             
                         </ul>
                 </div>
-            </li>
+            </li> -->
 
 
     <!--  end of nav bar -->

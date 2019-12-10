@@ -20,6 +20,14 @@ export class ListStudentComponent implements OnInit {
 
 
   list:student[]=[];
+
+  ngOnInit() {
+    this.getstudents();
+    this.reset();
+
+  }
+
+  
   getstudents(){
     this.studentService.findall().subscribe(students => {
       console.log(students);
@@ -112,13 +120,8 @@ search() {
 
 
 
-  ngOnInit() {
-    this.getstudents();
-    this.reset();
-    this.getstudentsWithoutPfefile();
 
 
 
-  }
 
 }

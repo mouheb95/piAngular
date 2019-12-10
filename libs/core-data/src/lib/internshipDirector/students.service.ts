@@ -71,6 +71,14 @@ export class StudentsService {
     return this.http.post(this.url+"signUp",user,this.httpOptions); 
    }
 
+   
+
+   findStudentById(ok) {
+
+    return this.http.get(this.url+'/findStudent?id='+ok);
+    
+   } 
+
 }
 export interface student {
   constructor(id: string, name: string, lastname: string )

@@ -1,4 +1,5 @@
 export class User {
+    role: string;
     profile: number;
     name: string;
     password: string;

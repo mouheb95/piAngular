@@ -20,7 +20,7 @@ export class OptionComponent implements OnInit {
   options;
   show_add_option = false;
   showOK= false;
-
+  emptyOption;
 
   constructor(
       private authenticationService: AuthenticationService,
@@ -32,13 +32,13 @@ console.log("constructor")
   }
 
   ngOnInit() {
-    this.resOption();
+    this.resOption()
     this.optionService.getAllOptions(this.currentUser).subscribe( res =>{
       this.options = res ;
     })
   }
   resOption(){
-    this.currentOption = {
+    this.emptyOption = {
       "id": null,
       "name": "",
       "score": "",
@@ -54,14 +54,15 @@ console.log("constructor")
   }
 
   saveChanges(option){
-    this.currentOption = option;
+
     if(option.id === null){
-      this.createOption(this.currentOption);
+      this.createOption(option);
     } else {
       this.updateOption(this.currentOption);
     }
     this.showOK=true;
     this.resOption();
+     
   }
 
 
@@ -79,14 +80,19 @@ createOption(option){
   }
 
   deleteOption(id){
+    console.log(id)
     this.optionService.deleteOption(id).subscribe( res => {
       console.log("deleted");
+    })
+    this.optionService.getAllOptions(this.currentUser).subscribe( res =>{
+      this.options = res ;
     })
     
   }
 
 
-showAddOption(){
+showAddOption(option){
+  this.currentOption = option
     this.show_add_option = true;
     
 }

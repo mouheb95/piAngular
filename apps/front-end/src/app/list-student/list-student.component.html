@@ -118,8 +118,7 @@
 	<div class="alert alert-light alert-elevate" role="alert">
 		<div class="alert-icon"><i class="flaticon-warning kt-font-brand"></i></div>
 		<div class="alert-text">
-			This example shows a vertically scrolling DataTable that makes use of the CSS3 vh unit in order to
-			dynamically resize the viewport based on the browser window height.
+			This is students list make your life easier .. best of luck in your work .. 
 		</div>
 	</div>
 
@@ -134,17 +133,20 @@
 				<span class="kt-portlet__head-icon">
 					<i class="kt-font-brand flaticon2-line-chart"></i>
 				</span>
-				
+
 				<a (click)='getstudentsWithoutPfefile()' _ngcontent-fqe-c2=""
-					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/student#"> students without PfeFile
+					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/InternshipDirector/student#"> students without
+					PfeFile
 				</a>
 				<a (click)='getstudents()' _ngcontent-fqe-c2=""
-					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/student#"> all student</a>
+					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/InternshipDirector/student#"> all student</a>
 				<a (click)='getstudentsWithPfefile()' _ngcontent-fqe-c2=""
-					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/student#">students with PfeFile
+					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/InternshipDirector/student#">students with
+					PfeFile
 				</a>
 				<a (click)='getStudentRefusePFE()' _ngcontent-fqe-c2=""
-					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/student#">students with rejected PfeFile 
+					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/InternshipDirector/student#">students with
+					rejected PfeFile
 				</a>
 			</div>
 
@@ -213,9 +215,9 @@
 						<th>Last name</th>
 						<th>Email </th>
 						<th>Active</th>
-						<th>Connected</th>
+
 						<th>Last connected</th>
-						<th>Status</th>
+						
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -226,16 +228,20 @@
 						<td>{{a.name}}</td>
 						<td>{{a.lastname}}</td>
 						<td> {{a.email}}</td>
-						<td>{{a.active}}</td>
-						<td>{{a.connected}}</td>
-						<td>{{a.lastConnect}}</td>
 						<td>
-							<span style="width: 110px;"><span
+							<span *ngIf="a.active==1" style="width: 110px;"><span
 									class="kt-badge kt-badge--success kt-badge--dot"></span>&nbsp;<span
-									class="kt-font-bold kt-font-success">Direct</span></span>
+									class="kt-font-bold kt-font-success">Enable</span></span>
+							<span *ngIf="a.active==0 "style="width: 110px;"><span
+									class="kt-badge kt-badge--danger kt-badge--dot"></span>&nbsp;<span
+									class="kt-font-bold kt-font-danger">Disable</span></span>
 						</td>
+
+						<td>{{a.lastConnect | date}}</td>
+				
 						<td>
-							<button (click)="pfeFileStudent(a.id)" type="button" class="btn btn-outline-dark">student pfeFile</button>
+							<button (click)="pfeFileStudent(a.id)" type="button" class="btn btn-outline-dark">student
+								pfeFile</button>
 						</td>
 					</tr>
 				</tbody>
@@ -271,11 +277,17 @@
 				class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
 		</div>
 		<div class="swal2-content">
-			<div id="swal2-content" style="display: block;"> the title of his pfe : {{ p.title }} 
-				<br> the description : {{ p.description }} 
-				<br> key word :{{ p.keyword }}
-				<br> the fonctionality :{{ p.fonctionality }}</div><input class="swal2-input" style="display: none;"><input type="file"
-				class="swal2-file" style="display: none;">
+			<div id="swal2-content" style="display: block;"> 
+				
+						  <ul class="list-group">
+							<li class="list-group-item list-group-item-action active"  aria-disabled="true"></li>
+							<li class="list-group-item"> the title of his pfe : {{ p.title }}</li>
+							<li class="list-group-item">the description : {{ p.description }}</li>
+							<li class="list-group-item">key word :{{ p.keyword }}</li>
+							<li class="list-group-item">the fonctionality :{{ p.fonctionality }}</li>
+						  </ul>
+			</div><input class="swal2-input"
+				style="display: none;"><input type="file" class="swal2-file" style="display: none;">
 			<div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select
 				class="swal2-select" style="display: none;"></select>
 			<div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox"
@@ -332,8 +344,9 @@
 				class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
 		</div>
 		<div class="swal2-content">
-			<div id="swal2-content" style="display: block;">sending mail rappel to the student to create theire pfe file</div><input
-				class="swal2-input" style="display: none;"><input type="file" class="swal2-file" style="display: none;">
+			<div id="swal2-content" style="display: block;">sending mail rappel to the student to create theire pfe file
+			</div><input class="swal2-input" style="display: none;"><input type="file" class="swal2-file"
+				style="display: none;">
 			<div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select
 				class="swal2-select" style="display: none;"></select>
 			<div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox"
@@ -353,9 +366,8 @@
 
 <!-- tab3a pop up rapel-->
 <div *ngIf="al" class="swal2-container swal2-center swal2-shown" style="overflow-y: auto;">
-	<div  aria-labelledby="swal2-title" aria-describedby="swal2-content"
-		class="swal2-popup swal2-modal swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true"
-		style="display: flex;">
+	<div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show"
+		tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: flex;">
 		<div class="swal2-header">
 			<ul class="swal2-progress-steps" style="display: none;"></ul>
 			<div class="swal2-icon swal2-error" style="display: none;"><span class="swal2-x-mark"><span
@@ -398,37 +410,37 @@
 
 <form id="labnol" method="get" action="https://www.google.com/search">
 	<div class="speech">
-	  <input type="text" name="q" id="transcript" placeholder="Speak" />
-	  <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+		<input type="text" name="q" id="transcript" placeholder="Speak" />
+		<img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
 	</div>
-  </form>
-  <script>
-  function startDictation() {
+</form>
+<script>
+	function startDictation() {
 
-    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+		if (window.hasOwnProperty('webkitSpeechRecognition')) {
 
-      var recognition = new webkitSpeechRecognition();
+			var recognition = new webkitSpeechRecognition();
 
-      recognition.continuous = false;
-      recognition.interimResults = false;
+			recognition.continuous = false;
+			recognition.interimResults = false;
 
-      recognition.lang = "en-US";
-      recognition.start();
+			recognition.lang = "en-US";
+			recognition.start();
 
-      recognition.onresult = function(e) {
-        document.getElementById('transcript').value
-                                 = e.results[0][0].transcript;
-        recognition.stop();
-        document.getElementById('labnol').submit();
-      };
+			recognition.onresult = function (e) {
+				document.getElementById('transcript').value
+					= e.results[0][0].transcript;
+				recognition.stop();
+				document.getElementById('labnol').submit();
+			};
 
-      recognition.onerror = function(e) {
-        recognition.stop();
-      }
+			recognition.onerror = function (e) {
+				recognition.stop();
+			}
 
-    }
-  }
-  </script>
+		}
+	}
+</script>
 
 
 

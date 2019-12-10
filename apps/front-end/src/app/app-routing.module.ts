@@ -15,11 +15,11 @@ import { TeacherComponent } from 'apps/front-end/src/app/head-of-departement/tea
 
 
 const routes: Routes = [
-    { path: 'pfeFile/:id', component : PfeFileComponent },
+    { path: 'InternshipDirector/pfeFile/:id', component : PfeFileComponent },
     { path: 'home',  component : HomeComponent },
-    { path: 'student', component: ListStudentComponent },
-    { path: 'pfefile', component: ListPfeFileComponent},
-    { path: 'dashboard', component: DashboardComponent},
+    { path: 'InternshipDirector/student', component: ListStudentComponent },
+    { path: 'InternshipDirector/pfefile', component: ListPfeFileComponent},
+    { path: 'InternshipDirector/dashboard', component: DashboardComponent},
     { path: 'login', component: LoginComponent },
     // { path: 'signUp', component: SignUpComponent },
     { path: 'headofdepartement/pfefile', component: HeadOfDepartementComponent },

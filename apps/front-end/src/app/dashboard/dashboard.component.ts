@@ -11,17 +11,35 @@ import { SingleDataSet, Label } from 'ng2-charts';
 export class DashboardComponent implements OnInit {
 
   a:any;
+  var = 20;
+  
+
   constructor( private dashboard : DashboardService) { }
 
+  ngOnInit() {
+   
+    
+   while(this.var == null){
+    this.var = this.AllStageEtudiantEtranger();
+   }
+    console.log(this.var)
+  }
+
+  // resCategory(){
+  //   const x = {
+  //     "Succee": null
+  //   } ;
+  //   this.var = x;
+  // }
   
-  AllStageEtudiantEtranger() : number{
+  AllStageEtudiantEtranger() {
     this.dashboard.AllStageEtudiantEtranger().subscribe(res => {
       
-      this.a=res;
-      
+      this.var=res;
+      console.log(this.var)
    })
-   console.log(this.a)
-   return this.a;
+   
+   return this.var;
    
   }
 
@@ -34,7 +52,7 @@ export class DashboardComponent implements OnInit {
 
   
   public pieChartLabels: Label[] = ['pourcentage stage à l etranger', 'pourcentage stage en tunis'];
-  public pieChartData: SingleDataSet = [20,80];
+  public pieChartData: SingleDataSet = [this.var,100-this.var];
   public pieChartType = 'pie';
 
 
@@ -62,8 +80,6 @@ export class DashboardComponent implements OnInit {
 
 
 
-  ngOnInit() {
-    this.AllStageEtudiantEtranger();
-  }
+
 
 }

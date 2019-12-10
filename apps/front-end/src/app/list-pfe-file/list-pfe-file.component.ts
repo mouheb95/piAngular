@@ -7,6 +7,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
 import * as jsPDF from 'jspdf';
+import { map, tap } from 'rxjs/operators';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 declare const $;
 
@@ -23,7 +24,9 @@ export class ListPfeFileComponent implements OnInit {
 
   constructor( private pfeFileService : PfeFileService, private pfeFileCancellingService : PfeFileCancellingService) { }
 
-  listPfeFile: PfeFile [] = [] ;
+  listPfeFile  ;
+  PfeFiles: PfeFile[] ;
+  pfe;
   listPfeFileCancelling= [] ;
 
   @Input() s: student;
@@ -41,19 +44,35 @@ export class ListPfeFileComponent implements OnInit {
 
       this.getPfeFile();
       this.reset();
-      this.getPfefileByYear();
+      this.resCategory();
     
     }
 
 
+    resCategory(){
+      this.pfe = {
+        "id": null,
+        "fonctionality": "",
+        "key": "",
+        "problematic": "",
+        "description": "",
+        "note_F": null,
+        "note_IR": null,
+  
+      } ;
+      //this.listPfeFile=this.pfe;
+    }
+
 
   getPfeFile(){
     this.pfeFileService.findall().subscribe(pfeFile => {
-      console.log(pfeFile);
+      
       this.listPfeFile = pfeFile;
       this.hideArchieve = true;
+      
 
    })
+   console.log("liste pfeeeeeeeeeeeeeeeeeeeeeee"+this.listPfeFile);
   }
   valPfeFile(p) {
     this.pfeFileService.validatePfeFile(p).subscribe(pfeFile => {

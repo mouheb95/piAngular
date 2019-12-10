@@ -22,7 +22,7 @@ export class HeadOfDepartementComponent implements OnInit {
   btnaffecterV= false;
   btnaffecterF= false;
   btnaffecterR= false;
-  showHistory= false;
+  
   currentUser= JSON.parse(localStorage.getItem('currentUser')).id;
 
 
@@ -33,6 +33,7 @@ export class HeadOfDepartementComponent implements OnInit {
   ngOnInit() {
     this.currentUser;
     this.getPfeFile();
+    console.log("cvbjnk,lm",this.getPfeFile())
     
     
   }
@@ -198,10 +199,9 @@ getPfeFileWithoutNoteR(){
 
 
 getPfeFileHistory(a){
-  this.showHistory= true;
   this.pfefileService.allPfeFileHistory(a).subscribe(pfeFile => {
     this.list_pfefile_history = pfeFile;
-    
+    console.log("testhistpru"+pfeFile)
  })
  }
 
@@ -209,13 +209,13 @@ getPfeFileHistory(a){
  getPfeFile(){
   this.pfefileService.allPfeFile(this.currentUser).subscribe(pfeFile => {
     this.list_pfefile = pfeFile;
-    console.log(this.list_pfefile)
+    console.log("ghjkpk",this.list_pfefile)
  })
  }
 
- pfeHistoryOut(){
-   this.showHistory=false;
- }
+//  pfeHistoryOut(){
+//    this.showHistory=false;
+//  }
 
 
 }

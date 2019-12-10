@@ -63,7 +63,7 @@ class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofde
                         <button *ngIf="btnaffecterV" (click)='affecterPfe1(a)' type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">Affecter Validator</button>
                         <button *ngIf="btnaffecterF" (click)='affecterPfe2(a)' type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">Affecter Framer</button>
                         <button *ngIf="btnaffecterR" (click)='affecterPfe3(a)' type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">Affecter Reporter</button>
-                        <button  (click)='getPfeFileHistory(a.id)' type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">show pfe fil history</button>
+                        <button data-toggle="modal" data-target="#exampleModal"  (click)='getPfeFileHistory(a.id)' type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">show pfe fil history</button>
                    
                     
 
@@ -240,28 +240,26 @@ class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofde
 </div>
 
 
-
-
-
 <!-- model of pfe file history -->
-<div *ngIf="showHistory" id="exampleModalLive" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 15px;">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+<div  id="exampleModal" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModal"
+ style="display: none; padding-right: 15px;">
+        <div class="modal-dialog" role="document" >
+          <div class="modal-content" >
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLiveLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModal">Modal title</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
             </div>
-            <div  *ngFor="let t of list_pfefile_history;let i = index" class="modal-body">
+            <div  *ngFor="let t of list_pfefile_history" class="modal-body" >
               <p> type of operation :</p>
-             {{i}} {{t.typeOfOperation}} 
+              {{t.typeOfOperation}} 
               <p> event :</p>
-              {{i}} {{t.event}} 
+               {{t.event}} 
               <p> pfe title :</p>
-              {{i}} {{t.pfeFile.title}} 
+               {{t.pfeFile.title}} 
               <p> date :</p>
-              {{i}} {{t.date | date}} 
+               {{t.date | date}} 
             </div>
             <div class="modal-footer">
               <button (click)="pfeHistoryOut()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -274,5 +272,5 @@ class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofde
 
 
       
-
+   
     <workshop-footer></workshop-footer>

@@ -16,6 +16,7 @@ export class TeacherComponent implements OnInit {
 
   currentTeacher;
   teachers ;
+  teacher;
   
   show_give_note = false;
 
@@ -49,7 +50,7 @@ export class TeacherComponent implements OnInit {
       })
     }
     resTeacher(){
-      this.teachers = {
+      this.teacher = {
         "id": null,
         "name": "",
         "lastname": "",
@@ -64,6 +65,7 @@ export class TeacherComponent implements OnInit {
 
 
     addNoteTeacher(Teacher){
+      console.log(Teacher)
       this.teacherService.addNoteTeacher(Teacher).subscribe( res =>{
         this.teachers = res ;
       })
