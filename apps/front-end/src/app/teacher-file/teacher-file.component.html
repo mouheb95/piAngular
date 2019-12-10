@@ -237,11 +237,12 @@
                                         </div>
                                         <!-- routerLink="/details"  -->
                                         <div class="kt-widget__footer" >
-                                             <div *ngIf="plz==0">
+                                             <div *ngIf="b.valid==0">
+                                                <input [(ngModel)]="b.modif" name="b.id" type="text">
+                                                <span class="kt-widget__data"><i class="kt-font-brand flaticon-edit-1" (click)="setModif(b,b.modif)"></i></span>
                                                 <button (click)="valider(b)" type="button" class="btn btn-label-success btn-lg btn-upper">Valid</button>
-                                                <input [(ngModel)]="b.modif" name="b.id" type="text"><button (click)="setModif(b,b.modif)" type="button" class="btn btn-danger btn-elevate btn-pill btn-elevate-air">set a modification</button>
                                             </div>
-                                            <div *ngIf="plz==1">
+                                            <div *ngIf="b.valid==1">
                                                 <h2 class="kt-font-success">PFE is valid</h2>
                                                 <i class="kt-font-brand flaticon-download-1" [routerLink]="['/details',b.id]"></i>
                                             </div>
