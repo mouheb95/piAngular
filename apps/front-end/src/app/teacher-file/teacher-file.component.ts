@@ -3,7 +3,6 @@ import { teacherfileService } from '@workshop/core-data';
 import { PfeFile } from 'libs/core-data/src/lib/teacherfile/PfeFile';
 import { Route, ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-teacher-file',
   templateUrl: './teacher-file.component.html',
@@ -14,16 +13,17 @@ export class TeacherFileComponent implements OnInit {
   constructor(private teacherfileService: teacherfileService) {
     
   }
-
+a;
   ngOnInit() {
     this.getRapport();
     this.getFramer();
     this.getValidator();
+    this.jcp(this.plz);
   }
 
   i:number;
   id:number;
-  valid;
+  plz;
   note = [];
   listFile = [] ;
   listFile2 = [] ;
@@ -81,7 +81,8 @@ export class TeacherFileComponent implements OnInit {
     });
     }    
 
- jcp(selectedCountry) {
-    this.valid=selectedCountry.valid;
+ jcp(a) {
+    this.plz=a;
     }
+
 }

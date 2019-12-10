@@ -185,7 +185,7 @@
                 <!--Begin-->
                 <div class="row ">
                         <div class="col-xl-3" *ngFor="let b of listFile3;">
-                            <div class="kt-portlet kt-portlet--height-fluid" (click)="jcp(b)">
+                            <div class="kt-portlet kt-portlet--height-fluid" (click)=jcp(b.valid)>
                                 <div class="kt-portlet__head kt-portlet__head--noborder">
                                     <div class="kt-portlet__head-label">
                                         <h3 class="kt-portlet__head-title">
@@ -229,20 +229,24 @@
                                                     <span class="kt-widget__label">Category:</span>
                                                     <span class="kt-widget__data">{{b.category.name}}</span>
                                                 </div>
+                                                <div class="kt-widget__contact">
+                                                    <span class="kt-widget__label">Company:</span>
+                                                    <span class="kt-widget__data">{{b.company.name}}</span>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- routerLink="/details"  -->
                                         <div class="kt-widget__footer" >
-                                             <div *ngIf="valid==false" name="1">
+                                             <div *ngIf="plz==0">
                                                 <button (click)="valider(b)" type="button" class="btn btn-label-success btn-lg btn-upper">Valid</button>
                                                 <input [(ngModel)]="b.modif" name="b.id" type="text"><button (click)="setModif(b,b.modif)" type="button" class="btn btn-danger btn-elevate btn-pill btn-elevate-air">set a modification</button>
                                             </div>
-                                            <div *ngIf="valid==true" name="2">
+                                            <div *ngIf="plz==1">
                                                 <h2 class="kt-font-success">PFE is valid</h2>
+                                                <i class="kt-font-brand flaticon-download-1" [routerLink]="['/details',b.id]"></i>
                                             </div>
                                         </div>
-                                    </div> 
-                                    <div><button [routerLink]="['/details',b.id]">take me plz</button></div>        
+                                    </div>        
                                 </div>
                             </div>
                         </div>
