@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Route, ActivatedRoute, Router } from '@angular/router'; 
 import { teacherfileService } from '@workshop/core-data';
-import {html2pdf} from 'html2pdf.js'
+import * as html2pdf from 'html2pdf.js';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-teacher-file-view',
@@ -35,8 +36,9 @@ export class TeacherFileViewComponent implements OnInit {
     })
   }
 
+  @ViewChild('content',{static:false}) content:ElementRef;
   print(){
-  var element = document.getElementById('pdf');
+  var element = document.getElementById('content');
   var opt = {
   margin:       1,
   filename:     'myfile.pdf',
@@ -47,5 +49,4 @@ export class TeacherFileViewComponent implements OnInit {
 
   html2pdf().from(element).set(opt).save();
   }
-
 }

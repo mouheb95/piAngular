@@ -4,7 +4,7 @@
 <div class="row">
 <div class="col-xl-12">
     <!--begin:: Portlet-->
-    <div class="kt-portlet kt-portlet--height-fluid" id="pdf">
+    <div class="kt-portlet kt-portlet--height-fluid" id="content" #content>
         <div class="kt-portlet__body kt-portlet__body--fit">
             <!--begin::Widget -->
             <div class="kt-widget kt-widget--project-1" *ngFor="let a of listFile3;" [hidden]="a.id !=yet">
@@ -78,7 +78,7 @@
                 <div class="kt-widget__footer">
                     <div class="kt-widget__wrapper">                
                         <div class="kt-widget__section">
-                            <button type="button" (click)="print()" class="btn btn-label-success btn-lg btn-upper">Print</button>                                 
+                            <button type="button" (click)="print()" class="btn btn-label-success btn-lg btn-upper">Download PDF</button>                                 
                         </div>
                     </div>
                 </div>
@@ -87,4 +87,3 @@
         </div>
     </div>
     <!--end:: Portlet-->
-    <script src="html2pdf.bundle.min.js"></script>
