@@ -240,7 +240,7 @@
 						<td>{{a.lastConnect | date}}</td>
 				
 						<td>
-							<button (click)="pfeFileStudent(a.id)" type="button" class="btn btn-outline-dark">student
+							<button *ngIf="a.password!=null" (click)="pfeFileStudent(a.id)" type="button" class="btn btn-outline-dark">student
 								pfeFile</button>
 						</td>
 					</tr>
@@ -277,7 +277,7 @@
 				class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
 		</div>
 		<div class="swal2-content">
-			<div id="swal2-content" style="display: block;"> 
+			<div *ngIf="p!=null" id="swal2-content" style="display: block;"> 
 				
 						  <ul class="list-group">
 							<li class="list-group-item list-group-item-action active"  aria-disabled="true"></li>
@@ -286,7 +286,21 @@
 							<li class="list-group-item">key word :{{ p.keyword }}</li>
 							<li class="list-group-item">the fonctionality :{{ p.fonctionality }}</li>
 						  </ul>
-			</div><input class="swal2-input"
+			</div>
+			<div *ngIf="p==null" id="swal2-content" style="display: block;"> 
+				
+					<ul class="list-group">
+							<div class="kt-demo-icon">
+									<div class="kt-demo-icon__preview">
+										<i class="fa fa-ban"></i>
+									</div>
+									<div class="kt-demo-icon__class">
+										VIDE                   </div>
+								</div>
+					  <li class="list-group-item">! the student still did not create PFE File !</li>
+					</ul>
+	  </div>
+			<input class="swal2-input"
 				style="display: none;"><input type="file" class="swal2-file" style="display: none;">
 			<div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select
 				class="swal2-select" style="display: none;"></select>

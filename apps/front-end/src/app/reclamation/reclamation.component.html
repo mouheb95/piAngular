@@ -4,14 +4,22 @@
 
 <div class="form-group">
     <label for="exampleFormControlInput1">Subject </label>
-    <input id="badWordCatch"  [(ngModel)]="Notification.subject"  name="subject" type="email" class="form-control"  placeholder="...">
-
+    <input id="badWordCatch"  [(ngModel)]="Notification.subject"  name="subject"  #subject="ngModel" required type="email" class="form-control"  placeholder="...">
+    <div >
+        <div  style="color: red" *ngIf="subject.invalid && subject.touched">
+          the subject is required *
+        </div>
+      </div>
   </div>
  
 <div class="form-group">
     <label for="exampleFormControlTextarea1">Message</label>
-    <textarea id="wordInput" [(ngModel)]="Notification.message" name="message" class="form-control"  rows="3"></textarea>
-
+    <textarea id="wordInput" [(ngModel)]="Notification.message" name="message"  #message="ngModel" required name="message" class="form-control"  rows="3"></textarea>
+    <div >
+        <div  style="color: red" *ngIf="subject.invalid && subject.touched">
+          u have to write the message *
+        </div>
+      </div>
 </div>
 
 <div class="kt-demo-icon">
@@ -24,7 +32,7 @@
        
         <div id="wordsFound"></div>
         <div id="wordAmount"></div>
-        <button data-toggle="modal" data-target="#exampleModal"  (click)="sendRec()" type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">Send Reclamation</button>
+        <button data-toggle="modal" data-target="#exampleModal" [disabled]="Notification.subject.invalid" (click)="sendRec()" type="button" class="btn btn-brand btn-elevate btn-pill btn-elevate-air btn-sm">Send Reclamation</button>
 
     </div>
   </div>

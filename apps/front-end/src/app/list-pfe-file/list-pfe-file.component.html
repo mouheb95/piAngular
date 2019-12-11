@@ -213,7 +213,7 @@
 
                                 <ul>
                                          
-                                        <a [routerLink]="['/InternshipDirector/pfeFile',a.id]"  (click)='hide()'> Details </a>
+                                        <a *ngIf="a.verification==1" [routerLink]="['/InternshipDirector/pfeFile',a.id]"  (click)='hide()'> Details </a>
                                         
                                         
                                         </ul>

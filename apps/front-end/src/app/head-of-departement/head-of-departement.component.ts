@@ -96,16 +96,19 @@ export class HeadOfDepartementComponent implements OnInit {
 
   affectValidateur(teacher,pfefile){
     
+    this.getPfeFileWithoutValidator();
 
     const obj={
       "validatorId":teacher.id,
       "fileId":pfefile.id
     }
     this.pfefileService.affectationValidateur(obj).subscribe(teacher => {
-  
+      this.getPfeFileWithoutValidator();
+
       
    })
    this.showpopup1 = !this.showpopup1;
+   this.getPfeFileWithoutValidator();
   }
   hideaffectation(){
     this.showpopup1 = !this.showpopup1;
@@ -122,19 +125,20 @@ export class HeadOfDepartementComponent implements OnInit {
 /**************************affecter Framer **************************************** */
 
   affectFramer(teacher,pfefile){
-    
+    this.getPfeFileWithoutFramer();
 
     const obj={
       "framerId":teacher.id,
       "fileId":pfefile.id
     }
     this.pfefileService.affectationFramer(obj).subscribe(teacher => {
-    
+      this.getPfeFileWithoutFramer();
       
    })
    this.showpopup2 = !this.showpopup2;
   }
   hideaffectation1(){
+    this.getPfeFileWithoutFramer();
     this.showpopup2 = !this.showpopup2;
   }
   affecterPfe2(a)
@@ -148,15 +152,17 @@ export class HeadOfDepartementComponent implements OnInit {
   /**************************affecter reporter **************************************** */
   affectReporter(teacher,pfefile){
     
-
+    this.getPfeFileWithoutReporter();
     const obj={
       "reporterId":teacher.id,
       "fileId":pfefile.id
     }
     this.pfefileService.affectationReporter(obj).subscribe(teacher => {
       console.log(teacher);
+      this.getPfeFileWithoutReporter();
       
    })
+   this.getPfeFileWithoutReporter();
    this.showpopup3 = !this.showpopup3;
   }
   hideaffectation3(){
@@ -179,7 +185,7 @@ getPfeFileWithoutNoteF(){
     console.log(pfeFile);
     this.list_pfefile = pfeFile;
     this.btnaffecterV= false;
-    this.btnaffecterF= false;
+    this.btnaffecterF= true;
     this.btnaffecterR= false;
 
  })
@@ -192,7 +198,7 @@ getPfeFileWithoutNoteR(){
     this.list_pfefile = pfeFile;
     this.btnaffecterV= false;
     this.btnaffecterF= false;
-    this.btnaffecterR= false;
+    this.btnaffecterR= true;
 
  })
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OptionService, UserService, AuthenticationService, User } from '@workshop/core-data';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { NgForm, FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-option',
@@ -22,6 +24,7 @@ export class OptionComponent implements OnInit {
   showOK= false;
   emptyOption;
 
+
   constructor(
       private authenticationService: AuthenticationService,
       private userService: UserService,
@@ -37,6 +40,10 @@ console.log("constructor")
       this.options = res ;
     })
   }
+
+  
+
+
   resOption(){
     this.emptyOption = {
       "id": null,

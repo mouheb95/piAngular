@@ -82,4 +82,63 @@ export class DashboardComponent implements OnInit {
 
 
 
+
+
+
+
+
+
+  public chartType: string = 'doughnut';
+
+  public chartDatasets: Array<any> = [
+    { data: [2, 1, 1], label: 'My First dataset' }
+  ];
+
+  public chartLabels: Array<any> = ['Dot-It', 'Scality', 'VERMEG'];
+
+  public chartColors: Array<any> = [
+    {
+      backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
+      hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774'],
+      borderWidth: 2,
+    }
+  ];
+
+  public chartOptions: any = {
+    responsive: true
+  };
+  public chartClicked(e: any): void { }
+  public chartHovered(e: any): void { }
+
+
+
+
+
+
+
+
+  public chartType2: string = 'doughnut';
+
+  public chartDatasets2: Array<any> = [
+    { data: [2, 1, 1], label: 'My First dataset' }
+  ];
+
+  public chartLabels2: Array<any> = ['JEE', 'Dot-Net', 'Angular'];
+
+  public chartColors2: Array<any> = [
+    {
+      backgroundColor: [ '#46BFBD', '#FDB45C', '#949FB1'],
+      hoverBackgroundColor: [ '#5AD3D1', '#FFC870', '#A8B3C5'],
+      borderWidth: 2,
+    }
+  ];
+
+  public chartOptions2: any = {
+    responsive: true
+  };
+  public chartClicked2(e: any): void { }
+  public chartHovered2(e: any): void { }
+
+
+
 }

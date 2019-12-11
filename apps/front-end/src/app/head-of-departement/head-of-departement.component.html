@@ -49,7 +49,7 @@ class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofde
                 <tr *ngFor="let a of list_pfefile;">
                     <td>{{a.id}}</td>
                     <td> {{a.fonctionality}} </td>
-                    <td>{{a.key}}</td>
+                    <td>{{a.keyWord}}</td>
                     <td>{{a.problematic}}</td>
                     <td>{{a.description}}</td>
                     <td>{{a.note_F}}</td>
@@ -260,9 +260,38 @@ class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/headofde
                {{t.pfeFile.title}} 
               <p> date :</p>
                {{t.date | date}} 
+
+               <table class="table table-striped- table-bordered table-hover table-checkable" >
+            
+                    <thead>
+                        <tr>
+                            
+                            <th> ID</th>
+                            <th>key</th>
+                            <th>Cdescription</th>
+                            <th>note Framer</th>
+                            <th>note Internship Reporter</th>
+                            <th>title</th>
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        <tr >
+                            <td>{{t.id}}</td>
+                            <td>{{t.keyWord}}</td>
+                            <td>{{t.description}}</td>
+                            <td>{{t.note_F}}</td>
+                            <td>{{t.note_IR}}</td>
+                            <td>{{t.title}}</td>
+                  
+        
+                        </tr>
+        
+                    </tbody>
+        
+                </table>
             </div>
             <div class="modal-footer">
-              <button (click)="pfeHistoryOut()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
