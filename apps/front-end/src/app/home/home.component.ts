@@ -15,7 +15,6 @@ export class HomeComponent {
 
   constructor(
     private authenticationService: AuthenticationService,
-
     private router: Router,
   ) {
 

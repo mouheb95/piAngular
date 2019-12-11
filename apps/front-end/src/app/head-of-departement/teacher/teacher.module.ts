@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TeacherRoutingModule } from './teacher-routing.module';
 import { TeacherComponent } from './teacher.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UiHeaderModule } from '@workshop/ui-header';
 import { UiFooterModule } from '@workshop/ui-footer';
 
@@ -15,7 +15,8 @@ import { UiFooterModule } from '@workshop/ui-footer';
     FormsModule,
     UiHeaderModule,
     UiFooterModule,
-    TeacherRoutingModule
+    TeacherRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [TeacherComponent]
 })

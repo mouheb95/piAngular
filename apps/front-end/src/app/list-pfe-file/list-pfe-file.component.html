@@ -105,31 +105,31 @@
                                         <span class="kt-nav__section-text">Export Tools</span>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="/pfefile#" class="kt-nav__link" id="export_print">
+                                        <a href="/InternshipDirector/pfefile#" class="kt-nav__link" id="export_print">
                                             <i class="kt-nav__link-icon la la-print"></i>
                                             <span class="kt-nav__link-text">Print</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="/pfefile#" class="kt-nav__link" id="export_copy">
+                                        <a href="/InternshipDirector/pfefile#" class="kt-nav__link" id="export_copy">
                                             <i class="kt-nav__link-icon la la-copy"></i>
                                             <span class="kt-nav__link-text">Copy</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="/pfefile#" class="kt-nav__link" id="export_excel">
+                                        <a href="/InternshipDirector/pfefile#" class="kt-nav__link" id="export_excel">
                                             <i class="kt-nav__link-icon la la-file-excel-o"></i>
                                             <span class="kt-nav__link-text">Excel</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="/pfefile#" class="kt-nav__link" id="export_csv">
+                                        <a href="/InternshipDirector/pfefile#" class="kt-nav__link" id="export_csv">
                                             <i class="kt-nav__link-icon la la-file-text-o"></i>
                                             <span class="kt-nav__link-text">CSV</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="/pfefile#" class="kt-nav__link" id="export_pdf">
+                                        <a href="/InternshipDirector/pfefile#" class="kt-nav__link" id="export_pdf">
                                             <i class="kt-nav__link-icon la la-file-pdf-o"></i>
                                             <span class="kt-nav__link-text">PDF</span>
                                         </a>
@@ -137,17 +137,17 @@
                                 </ul>
                             </div>
                             <a (click)='getPfefileByYear()' _ngcontent-fqe-c2=""
-					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/pfefile#">PfeFiles 2019
+					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/InternshipDirector/pfefile#">PfeFiles 2019
                 </a>
                 
                 <a (click)='getPfeFile()' _ngcontent-fqe-c2=""
-					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/pfefile#">get all 
+					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/InternshipDirector/pfefile#">get all 
                 </a>
                 <a (click)='getPfefileNotTreated()' _ngcontent-fqe-c2=""
-					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/pfefile#">pfe does not reated 
+					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/InternshipDirector/pfefile#">pfe does not reated 
                 </a>
                 <a (click)='getPfeFileArchieve()' _ngcontent-fqe-c2=""
-					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/pfefile#">pfe Archieved 
+					class="btn btn-label-primary btn-bold btn-icon-h kt-margin-l-10" href="/InternshipDirector/pfefile#">pfe Archieved 
 				</a>
                         </div>
                     </div>
@@ -197,8 +197,8 @@
                                                   <i (click)="cancel()" class="la la-ellipsis-h"></i>
                                                 </a>
                                                 <div *ngIf="pipe2" class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="/pfefile#" (click)='valPfeFile(a)'><i class="la la-edit"></i> Validate</a>
-                                                    <a class="dropdown-item" href="/pfefile#" (click)='getPfeFileByID(a.id)'><i class="la la-leaf"></i> Consult</a>
+                                                    <a class="dropdown-item" href="/InternshipDirector/pfefile#" (click)='valPfeFile(a)'><i class="la la-edit"></i> Validate</a>
+                                                    <a class="dropdown-item" href="/InternshipDirector/pfefile#" (click)='getPfeFileByID(a.id)'><i class="la la-leaf"></i> Consult</a>
                                                     <a class="dropdown-item" href="javascript:;" (click)='refusePfeFile(a)'><i class="la la-print"></i> Refuse Pfe </a>
                                                 </div>
                                             </span>
@@ -209,11 +209,11 @@
                                 <!-- <button (click)='valPfeFile(a)'> validate</button>
                                 <button (click)='getPfeFileByID(a.id)'> Consult</button> -->
                                 
-                                <button (click)="generatePdf()">Open PDF</button>
+                                <button (click)="makePdf()">Open PDF</button>
 
                                 <ul>
                                          
-                                        <a [routerLink]="['/pfeFile',a.id]"  (click)='hide()'> Details </a>
+                                        <a *ngIf="a.verification==1" [routerLink]="['/InternshipDirector/pfeFile',a.id]"  (click)='hide()'> Details </a>
                                         
                                         
                                         </ul>

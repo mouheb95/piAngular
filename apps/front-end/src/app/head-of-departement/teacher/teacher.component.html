@@ -15,6 +15,7 @@
         <th>nbr reporter</th>
         <th>nbr validator</th>
         <th>note Final</th>
+        <th>note Student</th>
         <th>Action </th>
       </tr>
       </thead>
@@ -25,12 +26,37 @@
         <td> {{teacher.name}} </td>
         <td>{{teacher.lastname}}</td>
         <td>{{teacher.email}}</td>
-        <td>{{teacher.diplome}}</td>
+        <td>{{teacher.diploma}}</td>
         <td>{{teacher.limitRole}}</td>
         <td>{{teacher.nbf}}</td>
         <td >{{teacher.nbr}}</td>
         <td >{{teacher.nbv}}</td>
-        <td >{{teacher.notefinal}}</td>
+        <td   >
+            <div *ngIf="teacher.notefinal!=-1">
+                    {{teacher.notefinal}}
+
+            </div>
+            <div *ngIf="teacher.notefinal==-1">
+                    <div class="kt-demo-icon">
+                            <div class="kt-demo-icon__preview">
+                                <i class="la la-times-circle"></i>
+                            </div>
+                            <div class="kt-demo-icon__class">
+                                                       </div>
+                        </div>
+                    
+
+            </div>
+
+           </td>
+        <td *ngIf="teacher.nn!=-1">{{teacher.nn}}</td>
+        <td *ngIf="teacher.nn==-1"><div class="kt-demo-icon">
+                <div class="kt-demo-icon__preview">
+                    <i class="la la-times-circle"></i>
+                </div>
+                <div class="kt-demo-icon__class">
+                   						</div>
+            </div></td>
           <td>
           <a  class="btn btn-info" (click)='showGiveNotePopUp(teacher)'> give it a note </a>
           <ul>
@@ -78,7 +104,12 @@
                 </div>
             <img class="swal2-image" style="display: none;">
             <h2 class="swal2-title" id="swal2-title" style="display: flex;">add note</h2>
-            <input  [(ngModel)]="currentTeacher.notefinal" name="hamma" >
+            <input  [(ngModel)]="currentTeacher.notefinal" name="notefinal" #notefinal="ngModel" >
+            <div >
+                    <div  style="color: red" *ngIf="notefinal.invalid && notefinal.touched">
+                      The note  is required *
+                    </div>
+                  </div>
             <button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
         </div>
         <div class="swal2-content">
@@ -97,7 +128,7 @@
                 </div>
         </div>
             <div class="swal2-actions">
-                <a classe="btn btn-info" href="headofdepartement/teacher/" (click)='addNoteTeacher(currentTeacher)'  type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block; border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">add note!</a>
+                <button [disabled]=" currentTeacher.notefinal > 20  ||  currentTeacher.notefinal < 0 " classe="btn btn-info" href="headofdepartement/teacher/" (click)='addNoteTeacher(currentTeacher)'  type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block; border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">add note!</button>
                 <button  (click)='hideGiveNotePopUp()' type="button" class="swal2-cancel swal2-styled" aria-label="" style="display: inline-block;">Cancel</button>
             </div>
         <div class="swal2-footer" style="display: none;"></div>

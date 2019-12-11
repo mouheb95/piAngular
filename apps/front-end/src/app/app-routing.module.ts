@@ -11,21 +11,28 @@ import { HomeComponent } from 'apps/front-end/src/app/home/home.component';
 import { CategoryComponent } from 'apps/front-end/src/app/head-of-departement/category/category.component';
 import { OptionComponent } from 'apps/front-end/src/app/head-of-departement/option/option.component';
 import { TeacherComponent } from 'apps/front-end/src/app/head-of-departement/teacher/teacher.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+import { CalendarComponent } from './calendar/calendar.component';
+
 
 
 
 const routes: Routes = [
-    { path: 'pfeFile/:id', component : PfeFileComponent },
+    { path: 'InternshipDirector/pfeFile/:id', component : PfeFileComponent },
     { path: 'home',  component : HomeComponent },
-    { path: 'student', component: ListStudentComponent },
-    { path: 'pfefile', component: ListPfeFileComponent},
-    { path: 'dashboard', component: DashboardComponent},
+    { path: 'InternshipDirector/student', component: ListStudentComponent },
+    { path: 'InternshipDirector/pfefile', component: ListPfeFileComponent},
+    { path: 'InternshipDirector/dashboard', component: DashboardComponent},
+    { path: 'InternshipDirector/reclamation', component: ReclamationComponent },
+
     { path: 'login', component: LoginComponent },
     // { path: 'signUp', component: SignUpComponent },
     { path: 'headofdepartement/pfefile', component: HeadOfDepartementComponent },
     { path: 'headofdepartement/category', component: CategoryComponent },
     { path: 'headofdepartement/option', component: OptionComponent },
     { path: 'headofdepartement/teacher', component: TeacherComponent },
+    { path: 'headofdepartement/calendar', component: CalendarComponent },
+
 
     { path: '**', redirectTo:"login", pathMatch: "full" },
   

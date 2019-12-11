@@ -27,7 +27,7 @@
                     <td>{{option.departement.name}}</td>
                     <td nowrap>
 
-                        <button class="btn btn-success" (click)='showAddOption(option)'> add option</button>
+                        <button class="btn btn-success" (click)='showAddOption(option)'> update option</button>
                         <button  class="btn btn-danger" (click)='deleteOption(option.id)'> delete</button>
 
 
@@ -49,7 +49,7 @@
 
 <!--Begin:: Form Content-->
 <div *ngIf="show_add_option" class="tab-pane active" id="kt_apps_contacts_view_tab_2" role="tabpanel">
-    <form class="kt-form kt-form--label-right">
+    <form #userForm="ngForm" class="kt-form kt-form--label-right">
         <div class="kt-form__body">
             <div class="kt-section kt-section--first">
                 <div class="kt-section__body">
@@ -63,15 +63,22 @@
                     <div class="form-group row">
                         <label class="col-xl-3 col-lg-3 col-form-label">option name</label>
                         <div class="col-lg-9 col-xl-6">
-                            <input class="form-control" type="text" [(ngModel)]="currentOption.name" name="name">
+                            <input type="text" [(ngModel)]="currentOption.name" name="name" #name="ngModel"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" required>
+                            <div >
+                                    <div  style="color: red" *ngIf="name.invalid && name.touched">
+                                      The name oh option is required *
+                                    </div>
+                                  </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-xl-3 col-lg-3 col-form-label">score</label>
                         <div class="col-lg-9 col-xl-6">
-                            <input class="form-control" type="text" [(ngModel)]="currentOption.score" name="score">
+                            <input class="form-control" type="number"  [(ngModel)]="currentOption.score" #score="ngModel" id="score" name="score" required >
+                            <p class="alert alert-danger invalid" *ngIf="score.errors && score.touched && score.invalid">score had to be between 10 and 18 pt</p>
                         </div>
-                    </div>
+
+                   </div>
 
                 </div>
             </div>
@@ -83,7 +90,7 @@
             <div class="row">
                 <div class="col-xl-3"></div>
                 <div class="col-lg-9 col-xl-6">
-                    <button class="btn btn-brand btn-bold" (click)="saveChanges(currentOption)">Save changes</button>
+                    <button [disabled]=" currentOption.score > 18  ||  currentOption.score < 10 " class="btn btn-brand btn-bold" (click)="saveChanges(currentOption)">Save changes</button>
                     <a (click)="returnPage()" href="/headofdepartement/option#" class="btn btn-clean btn-bold">Cancel</a>
                 </div>
             </div>

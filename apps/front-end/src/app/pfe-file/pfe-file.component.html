@@ -1,11 +1,11 @@
 <workshop-header> </workshop-header>
 
-
-                <div class="kt-portlet">
+         <div class="kt-portlet">
                         <div class="kt-portlet__head">
                             <div class="kt-portlet__head-label">
                                 <h3 class="kt-portlet__head-title">
-                                    PFE File 
+                                    PFE File of 
+                                    <a  href="InternshipDirector/pfeFile/pfeFile.id#" data-toggle="modal" data-target="#exampleModal4" (click)="StudentByID(pfeFile.student.id)"> {{pfeFile.student.name}} </a>
                                 </h3>
                             </div>
                             <div class="kt-portlet__head-toolbar">
@@ -23,7 +23,7 @@
                                         <li class="kt-nav__item">
                                             <a href="#" class="kt-nav__link">
                                                 <i class="kt-nav__link-icon flaticon2-drop"></i>
-                                                <span class="kt-nav__link-text">Update Details</span>
+                                                <span  class="kt-nav__link-text">Update Details</span>
                                             </a>
                                         </li>
                                         <li class="kt-nav__item">
@@ -66,28 +66,34 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-group-xs row">
-                                    <label class="col-4 col-form-label"> key </label>
-                                    <div class="col-8">
-                                        <span class="form-control-plaintext kt-font-bolder"> {{pfeFile.key}}</span>
+                                    <label class="col-4 col-form-label"> Title </label>
+                                    <div  class="col-8">
+                                        <ng-container > 
+                                        <span *ngIf="badWords.includes(pfeFile.title)==true" style="color:red;"  class="form-control-plaintext kt-font-bolder"> {{pfeFile.title}}</span>
+
+                                            <span *ngIf="badWords.includes(pfeFile.title)==false"   class="form-control-plaintext kt-font-bolder"> {{pfeFile.title}}</span>
+                                        </ng-container>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-xs row">
                                     <label class="col-4 col-form-label">description</label>
                                     <div class="col-8">
-                                        <span class="form-control-plaintext"><span class="kt-font-bolder"> {{pfeFile.description}}</span> &nbsp;<span class="kt-badge kt-badge--inline kt-badge--danger kt-badge--bold">Q4, 2019</span></span>
+                                        <span id="wordInput" class="form-control-plaintext"></span><span class="kt-font-bolder"> {{pfeFile.description}}</span>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-xs row">
                                     <label class="col-4 col-form-label">verification</label>
                                     <div class="col-8">
-                                        <span class="form-control-plaintext kt-font-bolder">{{pfeFile.verification}}</span>
+                                        <span *ngIf="pfeFile.verification==1" class="btn btn-bold btn-sm btn-font-sm  btn-label-success">Valid</span>
+                                        <span *ngIf="pfeFile.verification==2" class="btn btn-bold btn-sm btn-font-sm  btn-label-warning">Invalid</span>
+                                        <span *ngIf="pfeFile.verification==0" class="btn btn-bold btn-sm btn-font-sm  btn-label-brand">waiting</span>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-xs row">
                                     <label class="col-4 col-form-label">Problematic:</label>
                                     <div class="col-8">
                                         <span class="form-control-plaintext kt-font-bolder">
-                                                <a href="#">{{pfeFile.problematic}}</a>
+                                                <a>{{pfeFile.problematic}}</a>
                                             </span>
                                     </div>
                                 </div>
@@ -95,7 +101,7 @@
                                     <label class="col-4 col-form-label">Fonctionality:</label>
                                     <div class="col-8">
                                         <span class="form-control-plaintext kt-font-bolder">
-                                                <a href="#">{{pfeFile.fonctionality}}</a>
+                                                <a >{{pfeFile.fonctionality}}</a>
                                             </span>
                                     </div>
                                 </div>
@@ -103,16 +109,75 @@
                                     <label class="col-4 col-form-label">keyWord:</label>
                                     <div class="col-8">
                                         <span class="form-control-plaintext kt-font-bolder">
-                                                <a href="#">{{pfeFile.keyWord}}</a>
+                                                <a> {{pfeFile.keyWord}} </a>
                                             </span>
                                     </div>
                                 </div>
+                                <div class="form-group form-group-xs row">
+                                        <label class="col-4 col-form-label"> Note Framer </label>
+                                        <div class="col-8">
+                                            <span *ngIf="pfeFile.note_F!=0" style="color:green;" class="form-control-plaintext kt-font-bolder"> {{pfeFile.note_F}}</span>
+                                            <p *ngIf="pfeFile.note_F==0"> --</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group-xs row">
+                                            <label class="col-4 col-form-label"> Note Reporter </label>
+                                            <div class="col-8">
+                                                <span *ngIf="pfeFile.note_IR!=0"  style="color:green;" class="form-control-plaintext kt-font-bolder"> {{pfeFile.note_IR}}</span>
+                                                <span *ngIf="pfeFile.note_IR==0"> -- </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group-xs row">
+                                                <label class="col-4 col-form-label"> Category </label>
+                                                <div class="col-8">
+                                                    <span class="form-control-plaintext kt-font-bolder"> {{pfeFile.category.name}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-xs row">
+                                                    <label class="col-4 col-form-label"> Company </label>
+                                                    <div class="col-8">
+                                                        <span class="form-control-plaintext kt-font-bolder"> 
+                                                            <a href="InternshipDirector/pfeFile/pfeFile.id#" data-toggle="modal" data-target="#exampleModal" (click)="CompanyByID(pfeFile.company.id)"> {{pfeFile.company.name}} </a></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-group-xs row">
+                                                        <label class="col-4 col-form-label"> Date </label>
+                                                        <div class="col-8">
+                                                            <span class="form-control-plaintext kt-font-bolder"> {{pfeFile.dateCreate}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group form-group-xs row">
+                                                            <label class="col-4 col-form-label"> Current Year </label>
+                                                            <div class="col-8">
+                                                                <span class="form-control-plaintext kt-font-bolder"> {{pfeFile.CurrentYear}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group form-group-xs row">
+                                                                <label class="col-4 col-form-label"> Framer </label>
+                                                                <div class="col-8">
+                                                                        <span *ngIf="pfeFile.framer==null"  > Add a framer </span>
+                                                                    <a *ngIf="pfeFile.framer!=null" href="InternshipDirector/pfeFile/pfeFile.id#" data-toggle="modal" data-target="#exampleModal1" (click)="getTeacherByID(pfeFile.framer.id)"> {{pfeFile.framer.name}} </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group form-group-xs row">
+                                                                    <label class="col-4 col-form-label"> Validator </label>
+                                                                    <div class="col-8">
+                                                                            <span *ngIf="pfeFile.validator==null"  > Add a validator </span>
+                                                                        <a *ngIf="pfeFile.validator!=null" href="InternshipDirector/pfeFile/pfeFile.id#" data-toggle="modal" data-target="#exampleModal2" (click)="getTeacherByID(pfeFile.validator.id)"> {{pfeFile.validator.name}} </a>
+                                                                    </div>
+                                                                </div>
+                                                         
+                                                                <div class="form-group form-group-xs row">
+                                                                        <label class="col-4 col-form-label"> Reporter </label>
+                                                                        <div class="col-8">
+                                                                                <span *ngIf="pfeFile.internship_reporter==null"> Add a Reporter </span>
+                                                                            <a *ngIf="pfeFile.internship_reporter!=null" href="InternshipDirector/pfeFile/pfeFile.id#" data-toggle="modal" data-target="#exampleModal3" (click)="getTeacherByID(pfeFile.internship_reporter.id)"> {{pfeFile.internship_reporter.name}} </a>
+                                                                        </div>
+                                                                    </div>
                             </div>
                             <div class="kt-portlet__foot">
                                 <div class="kt-form__actions kt-space-between">
-                                    <a href="#" class="btn btn-label-brand btn-sm btn-bold">Manage company</a>
-            
-                                    <a href="#" class="btn btn-clean btn-sm btn-bold">Learn more</a>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -192,14 +257,20 @@
                                         <div class="col-xl-6">
                                             <div class="form-group">
                                             <label>Reporter name:</label>
-                                            <select name="country" class="form-control" [(ngModel)]="b" >
+                                            <select name="country" class="form-control" [(ngModel)]="teacher" >
                                                 <option value="">Select</option>
-                                                <option value="AI" *ngFor="let b of listTeacher" [value]="b.id"  name="id">{{b.name}}</option>
+                                                <ng-container *ngFor="let teacher of listTeacher">
+                                                <option   *ngIf="teacher.limitRole !== 0"   [value]="teacher.id"  name="id">
+                                                    
+                                                            {{teacher.name}}
+                                                            
+                                                </option>
+                                            </ng-container>
 
                                             </select>
                                            
                                         </div>
-                                        <button type="submit" (click)="affectationReporter(b.id)"> affectation</button>
+                                        <button type="submit" (click)="affectationReporter(teacher.id)"> affectation</button>
                                             this pfe file reporter'name : {{pfeFile.internship_reporter.name}}
                                             <br>
                                            
@@ -252,9 +323,13 @@
                                                 <div class="col-xl-6">
                                                         <div class="form-group">
                                                         <label>validator name:</label>
-                                                        <select name="country" class="form-control" [(ngModel)]="b" >
+                                                        <select name="name" class="form-control" [(ngModel)]="b" >
                                                             <option value="">Select</option>
-                                                            <option value="AI" *ngFor="let b of listTeacher" [value]="b.id"  name="id">{{b.name}}</option>
+                                                            <option *ngFor="let b of listTeacher" [value]="b.id"  name="id">
+                                                                <div *ngIf=" b.id==54">
+                                                                {{b.name}}
+                                                                </div>
+                                                            </option>
             
                                                         </select>
                                                        
@@ -329,17 +404,9 @@
                         </div>
                         <!--end: Form Wizard Step 4-->
     
-                        <!--begin: Form Wizard Step 5-->
-                        
-                        <!--end: Form Wizard Step 5-->
-    
                         <!--begin: Form Actions -->
                         <div class="kt-form__actions">
-                                this pfe file framer'name : {{pfeFile.internship_reporter.name}}
-                                <br>
-                                this pfe file framer'name : {{pfeFile.validator.name}}
-                                <br>
-                                 this pfe file framer'name : {{pfeFile.framer.name}}
+                             
                             <button class="btn btn-secondary btn-md btn-tall btn-wide kt-font-bold kt-font-transform-u" data-ktwizard-type="action-prev">
                                 Previous
                             </button>
@@ -357,9 +424,190 @@
             </div>
         </div>
     </div>
-    </div>
-    <!-- end:: Content -->					
+</div>
+    <!-- end:: Content -->	
+
+
+    
+    
 
 
 
-    <workshop-footer></workshop-footer>
+
+
+
+
+
+
+
+
+    <!-- model of Company -->
+<div  id="exampleModal" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModal"
+style="display: none; padding-right: 15px;">
+       <div class="modal-dialog" role="document" >
+         <div class="modal-content" >
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModal">{{company.name}} Company </h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">×</span>
+             </button>
+           </div>
+           <div  >
+             
+            <ul class="list-group list-group-flush">
+                    <li class="list-group-item">company id : {{company.id}}</li>
+                    <li class="list-group-item">company name : {{company.name}}</li>
+                    <li class="list-group-item">company address : {{company.address}}</li>
+                    <li class="list-group-item">company country : {{company.country}}</li>
+                    <li class="list-group-item">company phone number : {{company.phone}}</li>
+                    <li class="list-group-item">company responsable framer : {{company.responsible_framer}}</li>
+                    <li class="list-group-item">company responsible Name : {{company.responsible_name}}</li>
+                    <li class="list-group-item">company responsible Email : {{company.responsible_mail}}</li>
+                  </ul>
+           </div>
+           <div class="modal-footer">
+             <button   type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- end model of history -->
+
+
+
+      <!-- model of Framer -->
+<div  id="exampleModal1" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModal1"
+style="display: none; padding-right: 15px;">
+       <div class="modal-dialog" role="document" >
+         <div class="modal-content" >
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModal1"> Framer : {{teacher.name}}  </h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">×</span>
+             </button>
+           </div>
+           <div  >
+             
+            <ul class="list-group list-group-flush">
+                    <li class="list-group-item">framer id : {{teacher.id}}</li>
+                    <li class="list-group-item">framer name : {{teacher.name}}</li>
+                    <li class="list-group-item">framer lastname : {{teacher.lastname}}</li>
+                    <li class="list-group-item">framer birthdate : {{teacher.birthdate}}</li>
+                    <li class="list-group-item">framer email : {{teacher.email}}</li>
+                    <li class="list-group-item">yearOfRecrutement : {{teacher.yearOfRecrutement | date}}</li>
+                    <li class="list-group-item">framer diploma : {{teacher.diploma}}</li>
+                  </ul>
+           </div>
+           <div class="modal-footer">
+             <button   type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- end model of framer -->
+
+
+     <!-- model of validator -->
+<div  id="exampleModal2" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModal2"
+style="display: none; padding-right: 15px;">
+       <div class="modal-dialog" role="document" >
+         <div class="modal-content" >
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModal2"> Validator : {{teacher.name}}  </h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">×</span>
+             </button>
+           </div>
+           <div  >
+             
+            <ul class="list-group list-group-flush">
+                    <li class="list-group-item">validator id : {{teacher.id}}</li>
+                    <li class="list-group-item">validator name : {{teacher.name}}</li>
+                    <li class="list-group-item">validator lastname : {{teacher.lastname}}</li>
+                    <li class="list-group-item">validator birthdate : {{teacher.birthdate}}</li>
+                    <li class="list-group-item">validator email : {{teacher.email}}</li>
+                    <li class="list-group-item">yearOfRecrutement : {{teacher.yearOfRecrutement| date}}</li>
+                    <li class="list-group-item">validator diploma : {{teacher.diploma}}</li>
+                  </ul>
+           </div>
+           <div class="modal-footer">
+             <button   type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- end model of validator -->
+
+
+
+     <!-- model of Reporter -->
+<div  id="exampleModal3" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModal3"
+style="display: none; padding-right: 15px;">
+       <div class="modal-dialog" role="document" >
+         <div class="modal-content" >
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModal3"> Internship Reporter : {{teacher.name}}  </h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">×</span>
+             </button>
+           </div>
+           <div  >
+             
+            <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Reporter id : {{teacher.id}}</li>
+                    <li class="list-group-item">Reporter name : {{teacher.name}}</li>
+                    <li class="list-group-item">Reporter lastname : {{teacher.lastname}}</li>
+                    <li class="list-group-item">Reporter birthdate : {{teacher.birthdate}}</li>
+                    <li class="list-group-item">Reporter email : {{teacher.email}}</li>
+                    <li class="list-group-item">yearOfRecrutement : {{teacher.yearOfRecrutement | date}}</li>
+                    <li class="list-group-item">Reporter diploma : {{teacher.diploma}}</li>
+                  </ul>
+           </div>
+           <div class="modal-footer">
+             <button   type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- end model of Reporter -->
+
+
+      <!-- model of student -->
+<div  id="exampleModal4" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModal4"
+style="display: none; padding-right: 15px;">
+       <div class="modal-dialog" role="document" >
+         <div class="modal-content" >
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModal4"> student name: {{student.name}}  </h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">×</span>
+             </button>
+           </div>
+           <div  >
+             
+            <ul class="list-group list-group-flush">
+                    <li class="list-group-item">student id : {{student.id}}</li>
+                    <li class="list-group-item">student name : {{student.name}}</li>
+                    <li class="list-group-item">student lastname : {{student.lastname}}</li>
+                    <li class="list-group-item">student birthdate : {{student.birthdate}}</li>
+                    <li class="list-group-item">student email : {{student.email}}</li>
+           
+                  </ul>
+           </div>
+           <div class="modal-footer">
+             <button   type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- end model of student -->
+
+
+
+    
+     <workshop-footer></workshop-footer>

@@ -1,0 +1,181 @@
+<workshop-header></workshop-header>
+
+
+
+<div class="kt-portlet kt-portlet--height-fluid">
+	<div class="kt-widget14">
+		<div class="kt-widget14__header">
+			<h3 class="kt-widget14__title">
+				Charts of PFE             
+			</h3>
+			<span class="kt-widget14__desc">
+				pourcentage des stage de PFE en dehors de  <span style="font-weight:bold">TUNIS</span>
+			  par raopprt au global
+			</span>
+		</div>
+		<div class="kt-widget14__content">
+			<div class="kt-widget14__chart">
+
+                    <div  style="height: 700; width: 700px;">
+						<div style="display: block">
+							<canvas baseChart
+									[data]="pieChartData"
+									[labels]="pieChartLabels"
+									[chartType]="pieChartType"></canvas>
+						  </div>
+						
+                    </div>
+			</div>  		 
+			
+		</div> 	 
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="kt-portlet kt-portlet--height-fluid">
+	<div class="kt-widget14">
+		<div class="kt-widget14__header">
+			<h3 class="kt-widget14__title">
+				Chart of PFE every year            
+			</h3>
+			<span class="kt-widget14__desc">
+				pourcentage des stage de pfe en dehors de <span style="font-weight:bold">TUNIS</span> par raopprt au global
+			</span>
+		</div>
+		<div class="kt-widget14__content">
+			<div class="kt-widget14__chart">
+
+                    <div  style="height: 700; width: 700px;">
+						<div style="display: block">
+							<canvas baseChart
+								  [datasets]="barChartData"
+								  [labels]="barChartLabels"
+								  [options]="barChartOptions"
+								  [legend]="barChartLegend"
+								  [chartType]="barChartType"></canvas>
+						  </div>
+						
+                    </div>
+			</div>  		 
+			
+		</div> 	 
+	</div>
+</div>
+
+
+
+
+
+
+<div class="kt-portlet kt-portlet--height-fluid">
+		<div class="kt-widget14">
+			<div class="kt-widget14__header">
+				<h3 class="kt-widget14__title">
+					Most Company Stages         
+				</h3>
+				<span class="kt-widget14__desc">
+					number of company  ...  
+				</span>
+			</div>
+			<div class="kt-widget14__content">
+				<div class="kt-widget14__chart">
+	
+						<div  style="height: 700; width: 700px;">
+								<div style="display: block">
+										<canvas baseChart
+											[chartType]="chartType"
+											[datasets]="chartDatasets"
+											[labels]="chartLabels"
+											[colors]="chartColors"
+											[options]="chartOptions"
+											[legend]="true"
+											(chartHover)="chartHovered($event)"
+											(chartClick)="chartClicked($event)">
+										</canvas>
+									  </div>
+							
+						</div>
+				</div>  		 
+				
+			</div> 	 
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="kt-portlet kt-portlet--height-fluid">
+			<div class="kt-widget14">
+				<div class="kt-widget14__header">
+					<h3 class="kt-widget14__title">
+						Most Language Used in  Stages         
+					</h3>
+					<span class="kt-widget14__desc">
+						number of category  ...  
+					</span>
+				</div>
+				<div class="kt-widget14__content">
+					<div class="kt-widget14__chart">
+		
+							<div  style="height: 700; width: 700px;">
+									<div style="display: block">
+											<canvas baseChart
+												[chartType]="chartType2"
+												[datasets]="chartDatasets2"
+												[labels]="chartLabels2"
+												[colors]="chartColors2"
+												[options]="chartOptions2"
+												[legend]="true"
+												(chartHover)="chartHovered2($event)"
+												(chartClick)="chartClicked2($event)">
+											</canvas>
+										  </div>
+								
+							</div>
+					</div>  		 
+					
+				</div> 	 
+			</div>
+		</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <!doctype html>
+<html ng-app="app">
+
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+
+
+</html>
+
+
+
+
+<workshop-footer></workshop-footer>

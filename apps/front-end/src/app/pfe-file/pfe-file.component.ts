@@ -1,8 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { PfeFileService } from '@workshop/core-data';
 import { PfeFile } from 'libs/core-data/src/lib/internshipDirector/pfe-file.service';
-import { student } from 'libs/core-data/src/lib/internshipDirector/students.service';
+import { student, StudentsService } from 'libs/core-data/src/lib/internshipDirector/students.service';
 import { ActivatedRoute } from '@angular/router';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
+import * as jsPDF from 'jspdf';
+
 
 @Component({
   selector: 'app-pfe-file',
@@ -12,15 +17,35 @@ import { ActivatedRoute } from '@angular/router';
 export class PfeFileComponent implements OnInit {
 
   private id:any;
-
-  constructor( private pfeFileService : PfeFileService, private activatedroute : ActivatedRoute) { }
-
+  student;
+  teacher;
+  company;
   idpfefile: number;
   pfeFile: any;
   p: any;
-  b: any;
   @Input() s: PfeFile;
   listTeacher = [] ;
+  badWords = ['fuck', 'shit', 'hell', 'ass','asshole', 'merde', 'dumn', 'putain','stage'];
+  // var Filter = require('bad-words');
+  // filter = new Filter();
+  constructor( private pfeFileService : PfeFileService, private activatedroute : ActivatedRoute,
+    private studentService : StudentsService) { }
+
+    ngOnInit() {
+      this.resStudent();
+      this.resTeacher();
+      this.resVal();
+      this.resRep();
+      this.resfra();
+      this.resCompany();
+      this.activatedroute.paramMap.subscribe (result => this.id=result.get('id'));
+      this.getPfeFileByID(this.id);
+      this.getAllTeacher();
+      //console.log(filter.clean("don't be asshole"));
+  
+  
+    }
+
 
 
   getPfeFileByID(a){
@@ -32,15 +57,65 @@ export class PfeFileComponent implements OnInit {
   }
   
 
-  reset() {
-    const emptyP = {
-      id :'',
-    }
-    this.p =emptyP;
+  // reset() {
+  //   const emptyP = {
+  //     'id' :null,
+  //     'name':'',
+  //     'verification':''
+  //   }
+  //   this.p =emptyP;
+  // }
+
+    resStudent(){
+      this.pfeFile = {
+      "student":"",
+          } ;
+     
   }
 
+  resTeacher(){
+    this.teacher = {
+      "id":null,
+      "name":"",
+      "lastname":"",
+      "birthdate":"",
+      "email":"",
+      "yearOfRecrutement":"",
+      "diploma":""
+          } ;
+    
+  }
+
+  resVal(){
+    this.pfeFile = {
+      "validator":"",
+          } ;
+    
+  }
+  resRep(){
+    this.pfeFile = {
+      "reporter":"",
+          } ;
+    
+  }
+  resfra(){
+    this.pfeFile = {
+      "framer":"",
+          } ;
+    
+  }
+
+  resCompany(){
+    this.company = {
+      "name":"",
+          } ;
+    
+  }
+  
+
+
     affectationReporter(b){
-    this.pfeFileService.affectationReporter(this.b,this.pfeFile).subscribe(res=>{
+    this.pfeFileService.affectationReporter(this.teacher,this.pfeFile).subscribe(res=>{
       console.log(res);
       this.pfeFile = res;
     })
@@ -55,20 +130,37 @@ export class PfeFileComponent implements OnInit {
   }
 
   getTeacherByID(a){
-    this.pfeFileService.getTeacherByID(a).subscribe(teacher => {
-      console.log(teacher);
-      this.b = teacher;
+    this.resTeacher();
+    this.pfeFileService.getTeacherByID(a).subscribe(t => {
+      this.teacher= t;
+      console.log(this.teacher);
 
    })
   }
 
-  ngOnInit() {
-    this.reset();
-    this.activatedroute.paramMap.subscribe (result => this.id=result.get('id'));
-    this.getPfeFileByID(this.id);
-    this. getAllTeacher();
-    this.getTeacherByID(this.b);
+  CompanyByID(a){
+    this.pfeFileService.CompanyByID(a).subscribe(company => {
+      
+      this.company = company;
+      console.log(this.company);
 
+   })
   }
+
+  StudentByID(a){
+    this.resStudent();
+    this.studentService.findStudentById(a).subscribe(student => {
+      
+      this.student = student;
+      console.log(this.student);
+      
+
+   })
+  }
+
+
+
+
+ 
 
 }

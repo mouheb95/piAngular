@@ -65,12 +65,15 @@ export class TeacherComponent implements OnInit {
 
 
     addNoteTeacher(Teacher){
+      this.getAll();
       console.log(Teacher)
       this.teacherService.addNoteTeacher(Teacher).subscribe( res =>{
         this.teachers = res ;
       })
       this.getAll();
+      this.getAll();
        this.show_give_note = false;
+       this.getAll();
     }
 
     showGiveNotePopUp(teacher){
